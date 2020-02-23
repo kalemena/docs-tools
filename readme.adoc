@@ -1,0 +1,26 @@
+= Documentation Tools
+
+This repository is an attempt to provide resources for Documentation as Code. + 
+The best available frame to enable Documentation as Code is ASCIIDOC.
+
+== Writing
+
+Visual Studio Code and plugins for link:https://github.com/plantuml/plantuml[PlantUML] and AsciiDoc.
+
+== Publishing
+
+=== To PDF/HTML/EPUB
+
+link:https://asciidoctor.org/[AsciiDoctor]
+
+=== To Confluence
+
+link:https://github.com/confluence-publisher/confluence-publisher[Confluence-Publisher]
+
+== Links
+
+=== Diagrams
+
+* link:https://github.com/plantuml/plantuml[PlantUML]
+* link:https://kroki.io/[Kroki]
+* link:https://github.com/BurntSushi/erd[ERD]
