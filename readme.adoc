@@ -19,6 +19,10 @@ link:https://github.com/confluence-publisher/confluence-publisher[Confluence-Pub
 
 == Links
 
+=== Examples
+
+* link:https://github.com/mraible/infoq-mini-book[InfoQ mini book]
+
 === Diagrams
 
 * link:https://github.com/plantuml/plantuml[PlantUML]
