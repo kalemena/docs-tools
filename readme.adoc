@@ -26,5 +26,6 @@ link:https://github.com/confluence-publisher/confluence-publisher[Confluence-Pub
 === Diagrams
 
 * link:https://github.com/plantuml/plantuml[PlantUML]
+* link:https://diagrams.mingrammer.com/docs/guides/diagram[Diagrams]
 * link:https://kroki.io/[Kroki]
 * link:https://github.com/BurntSushi/erd[ERD]
