@@ -1,0 +1,8 @@
+= Environment
+
+Environment from link:https://github.com/confluence-publisher/confluence-publisher-it[]
+
+The following users are configured in Confluence:
+
+- admin/admin
+- confluence-publisher-it/1234
