@@ -5,3 +5,11 @@ This is image containing just enough to create diagrams from code.
 == Links
 
 * link:https://diagrams.mingrammer.com/docs/getting-started/examples[]
+
+== Usage
+
+[source,bash]
+----
+$ docker run -it --rm -v $(pwd):/diagrams genesys/diagrams python your_diagram.py
+----
+
