@@ -13,3 +13,13 @@ This is image containing just enough to create diagrams from code.
 $ docker run -it --rm -v $(pwd):/diagrams genesys/diagrams python your_diagram.py
 ----
 
+== Icons
+
+Diagrammer site does not ease to find icons and matching python imports.
+
+Below command generates list of Icons:
+
+[source,bash]
+----
+$ docker run -it --rm -v $(pwd):/diagrams genesys/diagrams python diagram-icons.py
+----
