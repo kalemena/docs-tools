@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<confluence-configuration>
+  <setupStep>complete</setupStep>
+  <setupType>custom</setupType>
+  <buildNumber>7103</buildNumber>
+  <properties>
+    <property name="admin.ui.allow.daily.backup.custom.location">false</property>
+    <property name="admin.ui.allow.manual.backup.download">false</property>
+    <property name="admin.ui.allow.site.support.email">false</property>
+    <property name="atlassian.license.message">AAACLg0ODAoPeNqNVEtv4jAQvudXRNpbpUSEx6FIOQBxW3ZZiCB0V1WllXEG8DbYke3A8u/XdUgVQ yg9ZvLN+HuM/e1BUHdGlNvuuEHQ73X73Y4bR4nbbgU9ZwFiD2IchcPH+8T7vXzuej9eXp68YSv45 UwoASYhOeYwxTsIE7RIxtNHhwh+SP3a33D0XnntuxHsIeM5CIdwtvYxUXQPoRIF6KaC0FUGVlEB3 v0hOAOWYiH9abFbgZith3i34nwOO65gsAGmZBhUbNC/nIpjhBWEcefJWelzqIDPWz/OtjmXRYv2X yqwnwueFkT57x8e4cLmbCD1QnX0UoKQoRc4EUgiaK4oZ2ECUrlZeay75sLNs2JDmZtWR8oPCfWZG wHAtjzXgIo0SqmZiKYJmsfz8QI5aI+zApuq6fqJKVPAMCPnNpk4LPW6kBWgkZb+kQAzzzS2g6Dnt e69Tqvsr4SOskIqEFOeggz1v4zrHbr0yLJR8rU64FpQpVtBy1mZxM4CnHC9Faf8tKMnTF1AiXORF ixyQaWto3RZ+ncWLXtMg6EnKZZRpmQNb2R8tnJXFulCfXmXLry7TrHBWn2HNVyH8WYxj9AzmsxiN L/R88Xg6rA1lVs4QpO5titxhplJcCY2mFFZLutAZVhKipm15/VhJx36YVqyN8YP7IaGC1+lwnJ7Q 5pJpNmxk5hP3qovutY8Pi4E2WIJ59esnr1p+T6eD67teBVCHf+ga+ho4/4D9YItZDAsAhQ5qQ6pA SJ+SA7YG9zthbLxRoBBEwIURQr5Zy1B8PonepyLz3UhL7kMVEs=X02q6</property>
+    <property name="attachments.dir">${confluenceHome}/attachments</property>
+    <property name="confluence.setup.server.id">B4IV-OHNI-T9DQ-BLAE</property>
+    <property name="confluence.webapp.context.path"></property>
+    <property name="hibernate.c3p0.acquire_increment">1</property>
+    <property name="hibernate.c3p0.idle_test_period">100</property>
+    <property name="hibernate.c3p0.max_size">60</property>
+    <property name="hibernate.c3p0.max_statements">0</property>
+    <property name="hibernate.c3p0.min_size">20</property>
+    <property name="hibernate.c3p0.timeout">30</property>
+    <property name="hibernate.connection.driver_class">org.h2.Driver</property>
+    <property name="hibernate.connection.isolation">2</property>
+    <property name="hibernate.connection.password"></property>
+    <property name="hibernate.connection.username">sa</property>
+    <property name="hibernate.database.lower_non_ascii_supported">true</property>
+    <property name="hibernate.dialect">net.sf.hibernate.dialect.H2Dialect</property>
+    <property name="hibernate.schema_management_tool">com.atlassian.confluence.impl.hibernate.ConfluenceHibernateSchemaManagementTool</property>
+    <property name="hibernate.setup">true</property>
+    <property name="jwt.private.key">MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAJKcrfTZ34Ph7BLRvOdn/U8m61VKfq4iDv75QOYKk+uX+eEwshmuBEhKcpzar6qHWqm1LRvVI+D9r29dXwENYnvJuECvmhsEjBrqYdEBtyolp1kXTe7+SHVpd7Mxr/vKJISeVYkBOv9oBNDjuozvnJZJQvZlO2J/ayDacTkE46FNAgMBAAECgYA35erhLuxsYQfcCQGIDPrkYcdaBoQUKkIjbq8SxjetnI0WEbXl2pYhZdka+rn9P4wOplgjg3khgDeSMzxUr2C7kJrkqhtTcaEBIOs+jfyYVmAQAX3gmbJ9kXrRdnJI7rVPEL1/+ZoEmg+cUTrXXNIhiOwmIZ6X8nbFaPuDnovd4QJBAO9ZyhDwhQ2lVnhLjBRxlcgoRFGGU7Afj/pGCNTTl8M35G5j+1Ktgmpnqa9/V364WuXO7gOHDn49HifbsKWmWkUCQQCcz3TRDI9tq8G7PrvCkVcmUjvCt7HZca0i9v23TIrd/eQ0nBHA2dWXaiCmDiTLuLdoWo/zQJny6S8IGkZ2lV9pAkAdVJR1dPPpEyzAewmEa9Ld/0k38E0LFSMQmUp1wiQj0RKWEHx4yjhkD6X0kpdHORIyfSQfnIpDH/w1CC/ibLs9AkBO1ko/09XEaKbk8dxKLPIo1Q0wj1Q+I1XNj2ntnvDuPPhfrtuKHrqw/m1drxy2w66KK4XV4XPE2ZGIvFUSx3SJAkEApoH2uIeKkqivaAXVvUWdPsebhQKGH+eDwnlri7iGKPKdPWbaCBnnQQnlPvdcpIeZe5NfDLCi7B/5Lc08WLn9pw==</property>
+    <property name="jwt.public.key">MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCSnK302d+D4ewS0bznZ/1PJutVSn6uIg7++UDmCpPrl/nhMLIZrgRISnKc2q+qh1qptS0b1SPg/a9vXV8BDWJ7ybhAr5obBIwa6mHRAbcqJadZF03u/kh1aXezMa/7yiSEnlWJATr/aATQ47qM75yWSUL2ZTtif2sg2nE5BOOhTQIDAQAB</property>
+    <property name="lucene.index.dir">${localHome}/index</property>
+    <property name="synchrony.btf">true</property>
+    <property name="synchrony.btf.off">true</property>
+    <property name="synchrony.encryption.disabled">true</property>
+    <property name="synchrony.proxy.enabled">true</property>
+    <property name="webwork.multipart.saveDir">${localHome}/temp</property>
+  </properties>
+</confluence-configuration>
