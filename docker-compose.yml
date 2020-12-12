@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:  
+
+  diagrams:
+    build: images/diagrams
+
+  # confluence:
+  #   # build: .
+  #   image: confluencepublisher/confluence-publisher-it:6.0.5
+  #   ports:
+  #    - "8090:8090"
+  #    - "8091:8091"
