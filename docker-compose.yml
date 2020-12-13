@@ -4,6 +4,7 @@ services:
 
   diagrams:
     build: images/diagrams
+    image: kalemena/diagrams:latest
 
   # confluence:
   #   # build: .
