@@ -6,6 +6,8 @@ RUN apt-get update -y \
 
 RUN pip --no-cache-dir install diagrams
 
+COPY [ "*.py", "/opt/diagrams/" ]
+
 RUN mkdir -p /diagrams
 
 WORKDIR /diagrams

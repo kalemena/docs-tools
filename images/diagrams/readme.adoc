@@ -10,7 +10,7 @@ This is image containing just enough to create diagrams from code.
 
 [source,bash]
 ----
-$ docker run -it --rm -v $(pwd):/diagrams genesys/diagrams python your_diagram.py
+$ docker run -it --rm -v $(pwd):/diagrams kalemena/diagrams python your_diagram.py
 ----
 
 == Icons
@@ -21,5 +21,5 @@ Below command generates list of Icons:
 
 [source,bash]
 ----
-$ docker run -it --rm -v $(pwd):/diagrams genesys/diagrams python diagram-icons.py
+$ docker run -it --rm -v $(pwd):/diagrams kalemena/diagrams python diagram-icons.py
 ----
