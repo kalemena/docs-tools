@@ -7,11 +7,20 @@ The best available frame to enable Documentation as Code is ASCIIDOC.
 
 The goal is to keep documentation within project source code, hence allowing ease update of code and doc.
 
-Visual Studio Code and plugins for link:https://github.com/plantuml/plantuml[PlantUML] and AsciiDoc.
+== Tools
 
-== Publishing
+This section describes tools commonly used to do perform proper documentation.
 
-=== To PDF/HTML/EPUB
+* Writing text:
+** Visual Studio Code and plugins for link:https://github.com/plantuml/plantuml[PlantUML] and AsciiDoc.
+
+* Diagrams:
+** Architecture with link:https://diagrams.mingrammer.com/docs/guides/diagram[Diagrams]
+** Classes, Use case, Flow diagrams with link:https://github.com/plantuml/plantuml[PlantUML]
+
+* Publishing
+** To PDF/HTML/EPUB : link:https://asciidoctor.org/[AsciiDoctor]
+** To Confluence : link:https://github.com/confluence-publisher/confluence-publisher[Confluence-Publisher]
 
 link:https://asciidoctor.org/[AsciiDoctor]
 
