@@ -6,9 +6,9 @@ services:
     build: images/diagrams
     image: kalemena/diagrams:latest
 
-  # confluence:
-  #   # build: .
-  #   image: confluencepublisher/confluence-publisher-it:6.0.5
-  #   ports:
-  #    - "8090:8090"
-  #    - "8091:8091"
+  confluence:
+    # build: .
+    image: confluencepublisher/confluence-publisher-it:6.0.5
+    ports:
+     - "8090:8090"
+     - "8091:8091"

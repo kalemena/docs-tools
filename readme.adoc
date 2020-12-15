@@ -32,6 +32,15 @@ This repository has an example doc which demonstrates publication to the various
 $ make build
 ----
 
+[IMPORTANT]
+====
+Confluence comes from link:https://github.com/confluence-publisher/confluence-publisher-it[]
+
+The following users are configured:
+- admin/admin
+- confluence-publisher-it/1234
+====
+
 == Links
 
 .Examples
