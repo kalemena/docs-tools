@@ -22,21 +22,21 @@ This section describes tools commonly used to do perform proper documentation.
 ** To PDF/HTML/EPUB : link:https://asciidoctor.org/[AsciiDoctor]
 ** To Confluence : link:https://github.com/confluence-publisher/confluence-publisher[Confluence-Publisher]
 
-link:https://asciidoctor.org/[AsciiDoctor]
+== Example
 
-=== To Confluence
+This repository has an example doc which demonstrates publication to the various destination mentioned above.
 
-link:https://github.com/confluence-publisher/confluence-publisher[Confluence-Publisher]
+.Building the toolkit
+[source, bash]
+----
+$ make build
+----
 
 == Links
 
-=== Examples
-
+.Examples
 * link:https://github.com/mraible/infoq-mini-book[InfoQ mini book]
 
-=== Diagrams
-
-* link:https://github.com/plantuml/plantuml[PlantUML]
-* link:https://diagrams.mingrammer.com/docs/guides/diagram[Diagrams]
+.Diagrams
 * link:https://kroki.io/[Kroki]
 * link:https://github.com/BurntSushi/erd[ERD]
