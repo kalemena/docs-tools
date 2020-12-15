@@ -3,7 +3,7 @@ version: '3.7'
 services:  
 
   diagrams:
-    build: images/diagrams
+    build: docker/images/diagrams
     image: kalemena/diagrams:latest
 
   confluence:
