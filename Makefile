@@ -21,6 +21,14 @@ confluence.stop:
 confluence.clean:
 	docker-compose down
 
+########################
+# BUILDING & PUBLISHING
+
+
+# Builds PDF book
+publishToPDF:
+	bash ./publishToPDF.sh
+
 # Clean caches
 clean:
 	rm -rf build
