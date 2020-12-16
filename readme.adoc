@@ -34,6 +34,17 @@ The sample documentation comes from link:https://github.com/confluence-publisher
 $ make build
 ----
 
+.Building the documentation as PDF
+[source, bash]
+----
+$ make publishToPDF
+----
+
+[IMPORTANT]
+====
+The documentation PDF book will be found under *build/_pdfbook.pdf*
+====
+
 .Confluence start/stop/clean
 [source, bash]
 ----
