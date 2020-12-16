@@ -1,0 +1,13 @@
+:author: John Doe
+:library: Asciidoctor
+:idprefix:
+:numbered:
+:imagesdir: /docs
+:toc: left
+:toclevels: 5
+:toc-placement: left
+:css-signature: demo
+:doctype: book
+:icons: font
+:icon-set: octicon
+:title-logo-image: /docs/images/frisbee.png

@@ -1,0 +1,44 @@
+= Sample Asciidoc Documentation
+:description: Sample Asciidoc Documentation
+
+include::/docs/_headers.pdf.adoc[]
+
+:leveloffset: +1
+
+include::00-index.adoc[]
+
+== Advanced Topics
+
+:leveloffset: +2
+
+include::00-index/01-pages.adoc[]
+
+include::00-index/02-includes.adoc[]
+
+include::00-index/03-sections.adoc[]
+
+include::00-index/04-paragraphs.adoc[]
+
+include::00-index/05-tables.adoc[]
+
+:imagesdir: /docs/images
+
+include::00-index/06-images.adoc[]
+
+include::00-index/07-listings.adoc[]
+
+include::00-index/08-admonitions.adoc[]
+
+include::00-index/09-external-links.adoc[]
+
+:filesdir: /docs/files/
+
+include::00-index/10-plantuml.adoc[]
+
+include::00-index/11-attachments.adoc[]
+
+include::00-index/12-table-of-contents.adoc[]
+
+:leveloffset: -2
+
+:leveloffset: -1

@@ -1,0 +1,193 @@
+= Tables
+
+AsciiDoc tables are converted to Confluence tables. The following table features are supported:
+
+== Simple Table
+
+A table without header row.
+
+[listing]
+....
+[cols="2"]
+|===
+| A1
+| A2
+
+| B1
+| B2
+|===
+....
+
+[cols="2"]
+|===
+| A1
+| A2
+
+| B1
+| B2
+|===
+
+
+== Table with Header
+
+A table with first row as header.
+
+[WARNING]
+====
+Currently, only column headers, are supported, but row headers not.
+====
+
+[listing]
+....
+[cols="2", options="header"]
+|===
+| Column 1
+| Column 2
+
+| A1
+| A2
+
+| B1
+| B2
+|===
+
+....
+
+[cols="2", options="header"]
+|===
+| Column 1
+| Column 2
+
+| A1
+| A2
+
+| B1
+| B2
+|===
+
+
+== Table with Styled Text
+
+A table with bold/italic text.
+
+[listing]
+....
+[cols="2", options="header"]
+|===
+| Column 1
+| Column 2
+
+| _A1_
+| _A2_
+
+| *B1*
+| *B2*
+|===
+....
+
+[cols="2", options="header"]
+|===
+| Column 1
+| Column 2
+
+| _A1_
+| _A2_
+
+| *B1*
+| *B2*
+|===
+
+== Table with Col Span
+
+[listing]
+....
+[cols="3", options="header"]
+|===
+| Column 1
+| Column 2
+| Column 3
+
+2+| A1 & A2
+| A3
+
+| B1
+| B2
+| B3
+|===
+....
+
+[cols="3", options="header"]
+|===
+| Column 1
+| Column 2
+| Column 3
+
+2+| A1 & A2
+| A3
+
+| B1
+| B2
+| B3
+|===
+
+== Table with Row Span
+
+[listing]
+....
+[cols="2", options="header"]
+|===
+| Column 1
+| Column 2
+
+.2+| A1
+| A2
+| A3
+
+| B1
+| B2
+|===
+....
+
+[cols="2", options="header"]
+|===
+| Column 1
+| Column 2
+
+.2+| A1
+| A2
+| A3
+
+| B1
+| B2
+|===
+
+== Table with AsciiDoc Cell
+
+Table cells may also contain structured content, e.g. bullet lists:
+
+[listing]
+....
+[cols="2", options="header"]
+|===
+| Column 1
+| Column 2
+
+|A1
+a|
+* A2
+* A3
+* A4
+|===
+....
+
+[cols="2", options="header"]
+|===
+| Column 1
+| Column 2
+
+|A1
+a|
+* A2
+* A3
+* A4
+|===
