@@ -27,9 +27,11 @@ RUN cd /tmp \
 
 COPY [ "*.py", "/usr/src/diagrams/" ]
 
-WORKDIR /usr/src/diagrams
-
 # install python requirements.
 RUN pip install black graphviz jinja2
+
+ENV PYTHONPATH "$PYTHONPATH:/usr/src/diagrams"
+
+WORKDIR /diagrams
 
 CMD ["python"]
