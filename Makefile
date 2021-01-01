@@ -24,6 +24,10 @@ confluence.clean:
 ########################
 # BUILDING & PUBLISHING
 
+# Builds the assets: python diagrams and/or puml
+publishAssets:
+	bash ./publishAssets.sh
+
 
 # Builds PDF book
 publishToPDF:
@@ -31,4 +35,6 @@ publishToPDF:
 
 # Clean caches
 clean:
-	rm -rf build
+	rm -rf $(CURDIR)/build
+	# docker run --rm -v $(CURDIR):/docs alpine rm -rf /docs/build
+
