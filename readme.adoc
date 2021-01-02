@@ -34,6 +34,20 @@ The sample documentation comes from link:https://github.com/confluence-publisher
 $ make build
 ----
 
+.Building diagrams with mingrammer tool
+[source, bash]
+----
+# Create python assets under *src/adoc/assets* folder (e.g. architecture-hla.py)
+$ make publishAssets
+
+# PNG files will be available under *build/images* folder (e.g. architecture-hla.png)
+----
+
+[TIP]
+====
+Building assets is already part of next actions for PDF or Confluence publish
+====
+
 .Building the documentation as PDF
 [source, bash]
 ----
