@@ -1,0 +1,36 @@
+:author: Sample Team
+:library: Asciidoctor
+:encoding: utf-8
+:idprefix:
+:numbered:
+:rootdir: /project/build
+:giturl: https://github.com/kalemena/docs-tools/tree/master
+:imagesdir: {rootdir}/images
+:binariesdir: https://github.com/kalemena/docs-tools/raw/master/src/adoc/binaries
+//:toc: left
+:toclevels: 5
+//:toc-placement: left
+:css-signature: demo
+:doctype: book
+:icons: font
+:icon-set: octicon
+:title-page: Sample Project
+:title-logo-image: {rootdir}/images/syrup.png
+//:front-cover-image: image:/docs/images/syrup.png[]
+:pagenums:
+
+:description: Sample Project - Dev Book
+
+:toc:
+
+//image:{rootdir}/images/syrup.png[Syrup,50,50]
+
+= Sample Project
+
+ifdef::backend-pdf[]
+IMPORTANT: This is an automatically generated document.
+endif::[]
+
+:leveloffset: +1
+
+include::_cross-references.adoc[]
