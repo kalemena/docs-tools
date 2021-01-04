@@ -1,0 +1,25 @@
+= Continous Delivery
+:toc:
+:hardbreaks:
+
+ifdef::confluencePublisherVersion[]
+include::/docs/_headers.confluence.adoc[]
+endif::[]
+
+ifdef::env-github[]
+:binariesdir: /docs/src/adoc/binaries
+:giturl:
+:imagesdir: /docs/src/adoc/images
+// Admonitions
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+Pipelines for Automation are implemented as Jenkins Pipeline using groovy scripts.
+
+High Level view:
+
+image:{imagesdir}/pipeline-build.png[Pipeline Build]

@@ -34,3 +34,7 @@ endif::[]
 :leveloffset: +1
 
 include::_cross-references.adoc[]
+
+<<<
+
+include::00-index/CICD.adoc[CICD]
