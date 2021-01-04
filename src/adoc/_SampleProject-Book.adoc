@@ -38,3 +38,7 @@ include::_cross-references.adoc[]
 <<<
 
 include::00-index/CICD.adoc[CICD]
+
+<<<
+
+include::00-index/Designs.adoc[Designs]

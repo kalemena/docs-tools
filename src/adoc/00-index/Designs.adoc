@@ -1,0 +1,27 @@
+= Designs
+:toc:
+:hardbreaks:
+
+ifdef::confluencePublisherVersion[]
+include::/docs/_headers.confluence.adoc[]
+endif::[]
+
+ifdef::env-github[]
+:binariesdir: /docs/src/adoc/binaries
+:giturl:
+:imagesdir: /docs/src/adoc/images
+// Admonitions
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+You can find designs in following sections.
+
+== High Level
+
+=== Class diagram
+
+plantuml::{rootdir}/assets/project_class_diagram.puml[format=png, alt="Class Diagram"]
