@@ -18,9 +18,17 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-You can find designs in following sections.
+This page demonstrates some of what could be found in project design docs.
 
 == High Level
+
+=== Activity diagram
+
+plantuml::{rootdir}/assets/project_activity_diagram.puml[format=png, alt="Activity Diagram"]
+
+=== Gant diagram
+
+plantuml::{rootdir}/assets/project_gant_diagram.puml[format=png, alt="Gant Diagram"]
 
 === Class diagram
 
