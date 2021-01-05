@@ -22,6 +22,66 @@ This page demonstrates some of what could be found in project design docs.
 
 == High Level
 
+=== MindMap & Breakdown
+
+plantuml::{rootdir}/assets/project_mindmap_diagram.puml[format=png, alt="MindMap Diagram"]
+
+[plantuml,sample-breakdown-diagram,png]
+----
+@startwbs
++ New Job
+++ Decide on Job Requirements
++++ Identity gaps
++++ Review JDs
+++++ Sign-Up for courses
+++++ Volunteer
+++++ Reading
+++- Checklist
++++- Responsibilities
++++- Location
+++ CV Upload Done
++++ CV Updated
+++++ Spelling & Grammar
+++++ Check dates
+---- Skills
++++ Recruitment sites chosen
+@endwbs
+----
+
+=== Network
+
+[plantuml,sample-network-diagram,png]
+----
+@startuml
+nwdiag {
+  group {
+    color = "#FFaaaa";
+    web01;
+    db01;
+  }
+  group {
+    color = "#aaaaFF";
+    web02;
+    db02;
+  }
+  network dmz {
+      address = "210.x.x.x/24"
+
+      web01 [address = "210.x.x.1"];
+      web02 [address = "210.x.x.2"];
+  }
+  network internal {
+      address = "172.x.x.x/24";
+
+      web01 [address = "172.x.x.1"];
+      web02 [address = "172.x.x.2"];
+      db01 ;
+      db02 ;
+  }
+}
+@enduml
+----
+
 === Activity diagram
 
 plantuml::{rootdir}/assets/project_activity_diagram.puml[format=png, alt="Activity Diagram"]
@@ -33,3 +93,8 @@ plantuml::{rootdir}/assets/project_gant_diagram.puml[format=png, alt="Gant Diagr
 === Class diagram
 
 plantuml::{rootdir}/assets/project_class_diagram.puml[format=png, alt="Class Diagram"]
+
+=== Sequence diagram
+
+plantuml::{rootdir}/assets/project_sequence_diagram.puml[format=png, alt="Sequence Diagram"]
+
