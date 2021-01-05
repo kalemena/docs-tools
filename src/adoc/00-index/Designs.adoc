@@ -20,7 +20,13 @@ endif::[]
 
 This page demonstrates some of what could be found in project design docs.
 
-== High Level
+== High Level Design
+
+== Diagrams
+
+Here are diagrams which are automatically generated from text.
+
+See link:https://plantuml.com/fr/sitemap-language-specification[PlantUML docs] for details.
 
 === MindMap & Breakdown
 
@@ -81,6 +87,32 @@ nwdiag {
 }
 @enduml
 ----
+
+// === State diagram
+
+// [plantuml,sample-state-diagram,png]
+// ----
+// @startuml
+// [*] -> State1
+// State1 --> State2 : Succeeded
+// State1 --> [*] : Aborted
+// State2 --> State3 : Succeeded
+// State2 --> [*] : Aborted
+// state State3 {
+//   state "Accumulate Enough Data" as long1
+//   long1 : Just a test
+//   [*] --> long1
+//   long1 --> long1 : New Data
+//   long1 --> ProcessData : Enough Data
+//   State2 --> [H]: Resume
+// }
+// State3 --> State2 : Pause
+// State2 --> State3[H*]: DeepResume
+// State3 --> State3 : Failed
+// State3 --> [*] : Succeeded / Save Result
+// State3 --> [*] : Aborted
+// @enduml
+// ----
 
 === Activity diagram
 
