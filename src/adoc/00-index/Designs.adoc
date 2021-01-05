@@ -86,9 +86,75 @@ nwdiag {
 
 plantuml::{rootdir}/assets/project_activity_diagram.puml[format=png, alt="Activity Diagram"]
 
+[plantuml,sample-actor-diagram,png]
+----
+@startuml
+skinparam handwritten true
+
+skinparam actor {
+BorderColor black
+FontName Courier
+        BackgroundColor<< Human >> Gold
+}
+
+skinparam usecase {
+BackgroundColor DarkSeaGreen
+BorderColor DarkSlateGray
+
+BackgroundColor<< Main >> YellowGreen
+BorderColor<< Main >> YellowGreen
+
+ArrowColor Olive
+}
+
+User << Human >>
+:Main Database: as MySql << Application >>
+(Start) << One Shot >>
+(Use the application) as (Use) << Main >>
+
+User -> (Start)
+User --> (Use)
+
+MySql --> (Use)
+@enduml
+----
+
 === Gant diagram
 
 plantuml::{rootdir}/assets/project_gant_diagram.puml[format=png, alt="Gant Diagram"]
+
+=== Relation diagram
+
+[plantuml,sample-relation-diagram,png]
+----
+@startuml
+object London
+object Washington
+object Berlin
+object NewYork
+
+map CapitalCity {
+ UK *-> London
+ USA *--> Washington
+ Germany *---> Berlin
+}
+
+NewYork --> CapitalCity::USA
+@enduml
+----
+
+=== UI diagram
+
+[plantuml,sample-ui-diagram,png]
+----
+@startsalt
+{
+  Login    | "MyName   "
+  Password | "****     "
+  [Cancel] | [  OK   ]
+}
+@endsalt
+----
 
 === Class diagram
 
@@ -98,3 +164,58 @@ plantuml::{rootdir}/assets/project_class_diagram.puml[format=png, alt="Class Dia
 
 plantuml::{rootdir}/assets/project_sequence_diagram.puml[format=png, alt="Sequence Diagram"]
 
+[plantuml,sample-sequence-diagram,png]
+----
+@startuml
+alice -> bob ++ : hello
+bob -> bob ++ : self call
+bob -> bib ++  #005500 : hello
+bob -> george ** : create
+return done
+return rc
+bob -> george !! : delete
+return success
+@enduml
+----
+
+=== Time diagram
+
+[plantuml,sample-time-diagram,png]
+----
+@startuml
+concise "Client" as Client
+concise "Server" as Server
+concise "Response freshness" as Cache
+
+Server is idle
+Client is idle
+
+@Client
+0 is send
+Client -> Server@+25 : GET
++25 is await
++75 is recv
++25 is idle
++25 is send
+Client -> Server@+25 : GET\nIf-Modified-Since: 150
++25 is await
++50 is recv
++25 is idle
+@100 <-> @275 : no need to re-request from server
+
+@Server
+25 is recv
++25 is work
++25 is send
+Server -> Client@+25 : 200 OK\nExpires: 275
++25 is idle
++75 is recv
++25 is send
+Server -> Client@+25 : 304 Not Modified
++25 is idle
+
+@Cache
+75 is fresh
++200 is stale
+@enduml
+----
