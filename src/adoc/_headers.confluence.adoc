@@ -1,0 +1,25 @@
+:author: Kalemena
+:library: Asciidoctor
+:idprefix:
+// :numbered:
+:rootdir: /docs
+//:rootdir: /docs-tools/src/adoc
+:giturl: https://github.com/kalemena/docs-tools
+:imagesdir: /docs/images
+:binariesdir: /docs/binaries
+:toc: left
+:toclevels: 5
+:toc-placement: left
+:css-signature: demo
+:doctype: book
+:icons: font
+:icon-set: octicon
+:title-logo-image: /docs/images/syrup.png
+:source-autofit:
+
+[IMPORTANT]
+====
+This is an automatically generated page.
+Do not edit.
+Source of doc is in link:https://github.com/kalemena/docs-tools[https://github.com/kalemena/docs-tools]
+====

@@ -1,0 +1,52 @@
+= Sample Project 
+
+ifdef::confluencePublisherVersion[]
+include::/docs/_headers.confluence.adoc[]
+endif::[]
+
+//ifdef::env-github,confluencePublisherVersion[:outfilesuffix: .adoc]
+//link:README{outfilesuffix}[README]
+
+ifdef::env-github[]
+:binariesdir: /docs/src/adoc/binaries
+:giturl:
+:imagesdir: /docs/src/adoc/images
+//:sectlinks:
+//:sectnums:
+// Admonitions
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+// ==== Confluence TOC
+ifdef::confluencePublisherVersion[]
+include::_cross-references.adoc[leveloffset=+1]
+endif::[]
+// ==== TOC
+
+== Description
+
+The documentation is written in the form of AsciiDoc.
+
+Nowadays, projects hosted on GitHub often use a *documentation-as-code*, where documentation is written as text using formatting such as *Markdown* or *Asciidoc*
+
+*AsciiDoc* is used here because this formatting offers much higher flexibility and features.
+
+*Asciidoctor* is a fast text processor and publishing toolchain for converting AsciiDoc content to HTML5, EPUB3, PDF, DocBook 5
+
+// ==== Confluence/GIT Specific (not in PDF)
+ifdef::env-github,confluencePublisherVersion[]
+
+== Chapters
+
+ifdef::env-github[]
+* <<_cross-references.adoc#, Cross References>>
+endif::[]
+
+* <<00-index/CICD.adoc#, CICD>>
+
+endif::[]
+// ==== 

@@ -28,6 +28,10 @@ confluence.clean:
 publishAssets:
 	bash ./publishAssets.sh
 
+# Publishes to Confluence
+# WARNING: Please fill in credentials in .env-confluence
+publishToConfluence:
+	bash ./publishToConfluence.sh
 
 # Builds PDF book
 publishToPDF:

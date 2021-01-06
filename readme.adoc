@@ -73,6 +73,8 @@ $ confluence.clean
 Confluence comes from link:https://github.com/confluence-publisher/confluence-publisher-it[]
 This environment has a 3h timeframe license only for testing.
 
+Confluence is available at link:http://localhost:8090[]
+
 The following users are configured:
 - admin/admin
 - confluence-publisher-it/1234
