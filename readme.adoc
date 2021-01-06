@@ -56,7 +56,7 @@ $ make publishToPDF
 
 [IMPORTANT]
 ====
-The documentation PDF book will be found under *build/_pdfbook.pdf*
+The documentation PDF book will be found under *build/_SampleProject-Book.pdf*
 ====
 
 .Confluence start/stop/clean
