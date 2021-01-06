@@ -1,0 +1,25 @@
+@startuml "Project Components"
+' !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Container.puml
+' uncomment the following line and comment the first to use locally
+!include C4_Container.puml
+
+System_Boundary(c1, "File Cluster") {    
+    Container(FileProvider, "FileProvider", "", "")
+    Container(FileUploader, "FileUploader", "CRON", "")
+    ContainerDb(files_storage, "Files System", "files", "")
+}
+
+System_Boundary(c2, "Target Cluster") {    
+    Container(c_webdav, "WebDAV Service", "", "")
+    Container(c_s3storage, "S3 Service", "", "")
+    Container(c_azure, "Azure Service", "", "")
+}
+
+Rel(FileProvider, FileUploader, "triggers", "HTTP")
+Rel(FileUploader, files_storage, "Read files", "")
+
+Rel(FileUploader, c_webdav, "Upload files", "HTTPS")
+Rel(FileUploader, c_s3storage, "Upload files", "HTTPS")
+Rel(FileUploader, c_azure, "Upload files", "HTTPS")
+
+@enduml

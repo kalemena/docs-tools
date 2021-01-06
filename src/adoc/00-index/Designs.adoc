@@ -155,6 +155,10 @@ MySql --> (Use)
 
 plantuml::{rootdir}/assets/project_gant_diagram.puml[format=png, alt="Gant Diagram"]
 
+=== C4 diagrams
+
+plantuml::{rootdir}/assets/project_c4_diagram.puml[format=png, alt="C4 Diagram"]
+
 === Relation diagram
 
 [plantuml,sample-relation-diagram,png]
@@ -191,6 +195,8 @@ NewYork --> CapitalCity::USA
 === Class diagram
 
 plantuml::{rootdir}/assets/project_class_diagram.puml[format=png, alt="Class Diagram"]
+
+plantuml::{rootdir}/assets/project_class_diagram_2.puml[format=png, alt="Class Diagram 2"]
 
 === Sequence diagram
 

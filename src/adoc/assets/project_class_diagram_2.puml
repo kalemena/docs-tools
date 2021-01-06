@@ -1,0 +1,33 @@
+@startuml components
+
+interface "REST API" as API
+component Configuration
+component Operation
+component Service
+component Metric
+interface "Task Interface" as TaskInterface
+component Task
+component TaskFlavor1
+component TaskFlavor2
+
+API - Operation
+Operation ..-> Service : use
+Operation ..-> Metric : use
+
+note top of Operation : REST API
+note top of Task: Task logic
+note top of Metric: Registered metrics
+note top of Service: High Level logic
+
+Task ..-> Configuration: use
+Task ..-> Service: use
+
+TaskInterface - TaskFlavor1
+TaskInterface - TaskFlavor2
+
+note top of TaskFlavor1: Flavor 1 of Task
+note top of TaskFlavor2: Flavor 2 of Task
+
+Task ..> TaskInterface: use
+
+@enduml
