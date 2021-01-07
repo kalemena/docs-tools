@@ -41,8 +41,8 @@ include::00-index.adoc[General Info]
 
 <<<
 
-include::00-index/CICD.adoc[CICD]
+include::00-index/Designs.adoc[Designs]
 
 <<<
 
-include::00-index/Designs.adoc[Designs]
+include::00-index/CICD.adoc[CICD]

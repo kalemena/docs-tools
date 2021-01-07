@@ -46,8 +46,8 @@ ifdef::env-github[]
 * <<_cross-references.adoc#, Cross References>>
 endif::[]
 
-* <<00-index/CICD.adoc#, CICD>>
 * <<00-index/Designs.adoc#, Designs>>
+* <<00-index/CICD.adoc#, CICD>>
 
 endif::[]
 // ==== 
