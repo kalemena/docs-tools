@@ -47,6 +47,7 @@ ifdef::env-github[]
 endif::[]
 
 * <<00-index/CICD.adoc#, CICD>>
+* <<00-index/Designs.adoc#, Designs>>
 
 endif::[]
 // ==== 

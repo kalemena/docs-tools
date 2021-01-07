@@ -80,6 +80,12 @@ The following users are configured:
 - confluence-publisher-it/1234
 ====
 
+.Building the documentation as Confluence
+[source, bash]
+----
+$ make publishToConfluence
+----
+
 == Links
 
 .Examples

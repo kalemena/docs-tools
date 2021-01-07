@@ -37,6 +37,10 @@ include::_cross-references.adoc[]
 
 <<<
 
+include::00-index.adoc[General Info]
+
+<<<
+
 include::00-index/CICD.adoc[CICD]
 
 <<<
