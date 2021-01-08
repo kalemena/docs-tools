@@ -1,5 +1,0 @@
-:toc:
-
-include::/docs/_vars.adoc[]
-
-IMPORTANT: This is an automatically generated page.
