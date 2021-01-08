@@ -1,0 +1,253 @@
+= Diagrams
+:toc:
+:hardbreaks:
+
+ifdef::confluencePublisherVersion[]
+include::/docs/_headers.confluence.adoc[]
+endif::[]
+
+ifdef::env-github[]
+:binariesdir: /docs/src/adoc/binaries
+:giturl:
+:imagesdir: /docs/src/adoc/images
+// Admonitions
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+Here are diagrams which are automatically generated from text.
+
+See link:https://plantuml.com/fr/sitemap-language-specification[PlantUML docs] for details.
+
+== MindMap & Breakdown
+
+plantuml::{rootdir}/assets/project_mindmap_diagram.puml[format=png, alt="MindMap Diagram"]
+
+[plantuml,sample-breakdown-diagram,png]
+----
+@startwbs
++ New Job
+++ Decide on Job Requirements
++++ Identity gaps
++++ Review JDs
+++++ Sign-Up for courses
+++++ Volunteer
+++++ Reading
+++- Checklist
++++- Responsibilities
++++- Location
+++ CV Upload Done
++++ CV Updated
+++++ Spelling & Grammar
+++++ Check dates
+---- Skills
++++ Recruitment sites chosen
+@endwbs
+----
+
+== Network
+
+[plantuml,sample-network-diagram,png]
+----
+@startuml
+nwdiag {
+  group {
+    color = "#FFaaaa";
+    web01;
+    db01;
+  }
+  group {
+    color = "#aaaaFF";
+    web02;
+    db02;
+  }
+  network dmz {
+      address = "210.x.x.x/24"
+
+      web01 [address = "210.x.x.1"];
+      web02 [address = "210.x.x.2"];
+  }
+  network internal {
+      address = "172.x.x.x/24";
+
+      web01 [address = "172.x.x.1"];
+      web02 [address = "172.x.x.2"];
+      db01 ;
+      db02 ;
+  }
+}
+@enduml
+----
+
+// === State diagram
+
+// [plantuml,sample-state-diagram,png]
+// ----
+// @startuml
+// [*] -> State1
+// State1 --> State2 : Succeeded
+// State1 --> [*] : Aborted
+// State2 --> State3 : Succeeded
+// State2 --> [*] : Aborted
+// state State3 {
+//   state "Accumulate Enough Data" as long1
+//   long1 : Just a test
+//   [*] --> long1
+//   long1 --> long1 : New Data
+//   long1 --> ProcessData : Enough Data
+//   State2 --> [H]: Resume
+// }
+// State3 --> State2 : Pause
+// State2 --> State3[H*]: DeepResume
+// State3 --> State3 : Failed
+// State3 --> [*] : Succeeded / Save Result
+// State3 --> [*] : Aborted
+// @enduml
+// ----
+
+== Activity diagram
+
+plantuml::{rootdir}/assets/project_activity_diagram.puml[format=png, alt="Activity Diagram"]
+
+[plantuml,sample-actor-diagram,png]
+----
+@startuml
+skinparam handwritten true
+
+skinparam actor {
+BorderColor black
+FontName Courier
+        BackgroundColor<< Human >> Gold
+}
+
+skinparam usecase {
+BackgroundColor DarkSeaGreen
+BorderColor DarkSlateGray
+
+BackgroundColor<< Main >> YellowGreen
+BorderColor<< Main >> YellowGreen
+
+ArrowColor Olive
+}
+
+User << Human >>
+:Main Database: as MySql << Application >>
+(Start) << One Shot >>
+(Use the application) as (Use) << Main >>
+
+User -> (Start)
+User --> (Use)
+
+MySql --> (Use)
+@enduml
+----
+
+== Gant diagram
+
+plantuml::{rootdir}/assets/project_gant_diagram.puml[format=png, alt="Gant Diagram"]
+
+== C4 diagrams
+
+plantuml::{rootdir}/assets/project_c4_diagram.puml[format=png, alt="C4 Diagram"]
+
+== Relation diagram
+
+[plantuml,sample-relation-diagram,png]
+----
+@startuml
+object London
+object Washington
+object Berlin
+object NewYork
+
+map CapitalCity {
+ UK *-> London
+ USA *--> Washington
+ Germany *---> Berlin
+}
+
+NewYork --> CapitalCity::USA
+@enduml
+----
+
+== UI diagram
+
+[plantuml,sample-ui-diagram,png]
+----
+@startsalt
+{
+  Login    | "MyName   "
+  Password | "****     "
+  [Cancel] | [  OK   ]
+}
+@endsalt
+----
+
+== Class diagram
+
+plantuml::{rootdir}/assets/project_class_diagram.puml[format=png, alt="Class Diagram"]
+
+plantuml::{rootdir}/assets/project_class_diagram_2.puml[format=png, alt="Class Diagram 2"]
+
+== Sequence diagram
+
+plantuml::{rootdir}/assets/project_sequence_diagram.puml[format=png, alt="Sequence Diagram"]
+
+[plantuml,sample-sequence-diagram,png]
+----
+@startuml
+alice -> bob ++ : hello
+bob -> bob ++ : self call
+bob -> bib ++  #005500 : hello
+bob -> george ** : create
+return done
+return rc
+bob -> george !! : delete
+return success
+@enduml
+----
+
+== Time diagram
+
+[plantuml,sample-time-diagram,png]
+----
+@startuml
+concise "Client" as Client
+concise "Server" as Server
+concise "Response freshness" as Cache
+
+Server is idle
+Client is idle
+
+@Client
+0 is send
+Client -> Server@+25 : GET
++25 is await
++75 is recv
++25 is idle
++25 is send
+Client -> Server@+25 : GET\nIf-Modified-Since: 150
++25 is await
++50 is recv
++25 is idle
+@100 <-> @275 : no need to re-request from server
+
+@Server
+25 is recv
++25 is work
++25 is send
+Server -> Client@+25 : 200 OK\nExpires: 275
++25 is idle
++75 is recv
++25 is send
+Server -> Client@+25 : 304 Not Modified
++25 is idle
+
+@Cache
+75 is fresh
++200 is stale
+@enduml
+----

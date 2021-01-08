@@ -45,4 +45,8 @@ include::00-index/Designs.adoc[Designs]
 
 <<<
 
+include::00-index/Diagrams.adoc[Diagrams]
+
+<<<
+
 include::00-index/CICD.adoc[CICD]
