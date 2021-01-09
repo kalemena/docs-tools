@@ -42,6 +42,122 @@ Nowadays, projects hosted on GitHub often use a *documentation-as-code*, where d
 
 *Asciidoctor* is a fast text processor and publishing toolchain for converting AsciiDoc content to HTML5, EPUB3, PDF, DocBook 5
 
+== How-To
+
+=== Editing
+
+Using *Visual Studio Code*, install plugings such as AsciiDoc in order to render the *.adoc* files.
+
+Follow syntax as documented in link:https://asciidoctor.org/docs/user-manual[AsciiDoctor User Manual]
+
+=== Building
+
+Building the documentation can be done with targets:
+
+* Confluence
+* HTML
+* PDF Book
+
+
+
+==== Confluence
+
+From current folder, edit the file named *.env-confluence* with your credentials. Don't edit anything else.
+
+[TIP]
+====
+ANCESTOR_ID is found by browsing Confluence page and clicking Edit button. The Ancestor Id is the pageId seen in URL such as https://intranet.genesys.com/pages/editpage.action?pageId=127375463
+====
+
+Then run command from console:
+
+    $ make publishToConfluence
+
+The Confluence page will be found under the project page defined as *ANCESTOR_ID* in .env file.
+
+==== HTML
+
+WARNING: FIXME
+
+FIXME: link:https://darshandsoni.com/asciidoctor-skins/[Theming]
+
+==== PDF
+
+From current folder, run following command:
+
+    $ make publishToPDF
+
+The documentation will be rendered under the *build/_pdfbook.pdf* file
+
+NOTE: See link:https://github.com/asciidoctor/asciidoctor-pdf/blob/master/docs/theming-guide.adoc#applying-your-theme[Theming Guide]
+
+== Tips
+
+Here are few tips: 
+
+* link:https://github.com/asciidoctor/docker-asciidoctor[Asciidoctor Docker image]
+* link:https://bcouetil.gitlab.io/academy/BP-asciidoc.html[AsciiDoc Tips @ Zenika]
+
+For example *foldable source* :
+
++++ <details open><summary> +++
+*opened by default*
++++ </summary><div> +++
+[source, json]
+....
+{
+   "plop" : "key", "value" : "value"
+}
+....
++++ </div></details> +++
+
+== Examples
+
+Examples of *Doc As Code* source repository and rendering below.
+
+Not all are using *AsciiDoc*, however the principle remains the same with text source getting processed and rendered to different targets:
+
+* Microsoft docs with 2000 repos (with per language repo): link:https://github.com/MicrosoftDocs[Microsoft Docs repos in GIT]
+** One of the doc source and rendered:
+*** link:https://github.com/MicrosoftDocs/bot-docs.fr-fr[Microsoft Doc sample in GIT]
+*** link:https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0[Microsoft Doc sample Azure Bot]
+
+* Docker
+** link:https://github.com/docker/docker.github.io[Docker Docs in GIT]
+** link:https://docs.docker.com/[Docker Docs rendered]
+
+* Amazon user guides:
+** link:https://github.com/awsdocs[Amazon Docs in GIT]
+
+== Applications & Tools
+
+ASCIIDOC is tool of choice for all Designs, Architecture, Deployment Guides and User Guides.
+
+* Applications:
+** link:http://www.plantuml.com/plantuml/uml/[PlantUML]
+** link:http://www.graphviz.org/download/[GraphViz] 
+** link:https://confluence-publisher.atlassian.net/wiki/spaces/CPD/overview?mode=global[Confluence Publisher]
+** link:https://doctoolchain.github.io/docToolchain/[DocToolChain] and link:https://github.com/docToolchain[DocToolChain GIT] *TOBETESTED more*
+** link:https://asciidocfx.com/[Asciidoc FX] with link:https://github.com/asciidocfx/AsciidocFX[Asciidoc FX GIT] *TOBETESTED*
+
+* Chrome extensions:
+** link:https://github.com/asciidoctor/docker-asciidoctor/blob/master/tests/fixtures/epub-sample/asciidoctor-js-browser-extension.adoc[Asciidoc JS Browser Extension]
+** link:https://github.com/asciidoctor/docker-asciidoctor/blob/master/tests/fixtures/epub-sample/i18n.adoc[Unicode tips]
+** link:https://github.com/asciidoctor/docker-asciidoctor/tree/master/tests[Tests]
+
+* Sources:
+** link:https://github.com/Zenika/adoc-presentation-model[Doc As Code Slides]
+
+* Sanitize/Linters:
+** link:https://github.com/redpen-cc/redpen[]
+** link:https://errata-ai.gitbook.io/vale/[]
+
+* GitPitch
+** link:https://docs.gitpitch.com/#/diagrams/cloud-architecture[]
+
+
+
+
 // ==== Confluence/GIT Specific (not in PDF)
 ifdef::env-github,confluencePublisherVersion[]
 
