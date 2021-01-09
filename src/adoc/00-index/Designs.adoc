@@ -28,3 +28,184 @@ image:{imagesdir}/architecture-hla.png[]
 
 == Low Level Design
 
+Example source code:
+
+[source,xml]
+.pom.xml
+----
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.sahli.asciidoc.confluence.publisher</groupId>
+      <artifactId>asciidoc-confluence-publisher-maven-plugin</artifactId>
+      <version><!-- insert version here --></version>
+      <configuration>
+        <asciidocRootFolder>etc/docs</asciidocRootFolder>
+        <sourceEncoding>UTF-8<sourceEncoding> <!-- default -->
+        <rootConfluenceUrl>http://localhost:8090</rootConfluenceUrl>
+        <skipSslVerification>false</skipSslVerification>
+        <spaceKey>SPACE</spaceKey>
+        <ancestorId>327706</ancestorId>
+        <username>username</username> <!-- or read from property -->
+        <password>password</password> <!-- or read from property -->
+        <pageTitlePrefix xml:space="preserve">Doc :: </pageTitlePrefix>
+        <pageTitleSuffix xml:space="preserve"> [${project.version}]</pageTitleSuffix>
+        <versionMessage>Version ${project.version}</versionMessage>
+        <attributes>
+            <version>${project.version}</version>
+            <someOtherKey>value</someOtherKey>
+        </attributes>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+----
+
+[listing]
+....
+= Document Title
+....
+
+== Source Block
+
+Source blocks are converted using the "code" macro. Only languages supported by the Code Block Macro can be used:
+`actionscript3`, `applescript`, `bash`, `c#`, `cpp`, `css`, `coldfusion`, `delphi`, `diff`, `erl`, `groovy`,
+`xml`, `java`, `jfx`, `js`, `php`, `perl`, `text`, `powershell`, `py`, `ruby`, `sql`, `sass`, `scala`,
+`vb`, `yml` (since Confluence 6.7 only)
+
+[listing]
+....
+[source,java]
+----
+public class MyCode {
+    // comment
+}
+----
+....
+
+[source,java]
+----
+public class MyCode {
+    // comment
+}
+----
+
+// == Source Blocks from External Files (Full Content)
+
+// Including source code from external files is supported:
+
+// [listing]
+// ....
+// [source,java]
+// ----
+// \include::../files/Source.java[]
+// ----
+// ....
+
+// [source,java]
+// ----
+// include::../files/Source.java[]
+// ----
+
+
+
+// == Source Blocks from External Files (Partial Content)
+
+// Restricting the source code to be included based on tags is supported:
+
+// [listing]
+// ....
+// [source,java]
+// ----
+// \include::../files/SourceWithMethodTag.java[tags=myMethod]
+// ----
+// ....
+
+// [source,java]
+// ----
+// include::../files/SourceWithMethodTag.java[tags=myMethod]
+// ----
+
+[WARNING]
+====
+Other advanced features like listing file names or callouts are not supported.
+====
+
+Example Table:
+
+|===
+| Configuration Property | Description | Constraint
+
+| rootConfluenceUrl
+| The root URL of the Confluence instance to publish to.
+  +
+  +
+  _Note:_ when publishing to Confluence Cloud, the root URL is https://<project>.atlassian.net/wiki.
+| mandatory
+
+| ancestorId
+| The id of the ancestor page under which the pages are appended.
+
+  Be aware that publishing will remove all pages under the configured ancestor id that are not part of the published
+  documentation ("orphaned pages").
+| mandatory
+
+| password
+| The password of the user to use for publishing.
+  +
+  +
+  _Note:_ when publishing to Confluence Cloud, an API token generated via the corresponding Atlassian account has to
+  be used as password.
+| mandatory
+
+| publishingStrategy
+a| The strategy to use when publishing to confluence. Possible values:
+
+* `APPEND_TO_ANCESTOR`: append the published pages to the ancestor and remove all orphaned pages
+* `REPLACE_ANCESTOR`: replace the title and the content of the ancestor with those of the one single root page and
+remove all orphaned pages (requires the documentation source structure to contain exactly one single root page)
+
+| optional (defaults to `APPEND_TO_ANCESTOR`)
+
+|===
+
+
+// = Attachments
+
+// If an AsciiDoc file references a non-AsciiDoc file (e.g. a text file, PDF, ...) that non-AsciiDoc file is automatically
+// added as an attachment to the corresponding Confluence page. Referenced non-AsciiDoc files are resolved relative to the
+// location of the referencing AsciiDoc file.
+
+// Attachment links may specify a label.
+
+// [listing]
+// ....
+// link:../files/attachment.txt[Attachment]
+// ....
+
+// link:../files/attachment.txt[Attachment]
+
+
+// If no label is specified, the attachment filename is used as the label.
+
+// [listing]
+// ....
+// link:../files/attachment.txt[]
+// ....
+
+// link:../files/attachment.txt[]
+
+
+// == Includes
+
+// [NOTE]
+// ====
+// Include files must be prefixed with an underscore.
+// ====
+
+// [listing]
+// ....
+// \include::_included-content.adoc[]
+// ....
+
+// include::_included-content.adoc[]

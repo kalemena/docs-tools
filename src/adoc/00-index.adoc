@@ -1,4 +1,4 @@
-= Sample Project 
+= Project 
 
 ifdef::confluencePublisherVersion[]
 include::/docs/_headers.confluence.adoc[]
@@ -27,9 +27,14 @@ include::_cross-references.adoc[leveloffset=+1]
 endif::[]
 // ==== TOC
 
-== Description
-
+[NOTE]
+====
 The documentation is written in the form of AsciiDoc.
+
+_Version of Confluence Publisher : {confluencePublisherVersion}_
+====
+
+== Description
 
 Nowadays, projects hosted on GitHub often use a *documentation-as-code*, where documentation is written as text using formatting such as *Markdown* or *Asciidoc*
 
@@ -49,6 +54,104 @@ endif::[]
 * <<00-index/Designs.adoc#, Designs>>
 * <<00-index/Diagrams.adoc#, Diagrams>>
 * <<00-index/CICD.adoc#, CICD>>
+
+== Links within Pages
+
+Links to content blocks within the same page are supported using AsciiDoc inline anchors and internal cross references:
+
+[listing]
+....
+[[paragraph-a]]Paragraph with inline anchor
+
+Another paragraph with internal cross-reference to <<paragraph-a>>
+....
+
+[[paragraph-a]]Paragraph with inline anchor
+
+Another paragraph with internal cross-reference to <<paragraph-a>>
+
+Links to sections within the same page are supported either using anchors or custom section ids:
+
+[listing]
+....
+[[section-a]]
+=== Section with Anchor
+
+Paragraph with internal cross-reference to <<section-a>>
+....
+
+[[section-a]]
+=== Section with Anchor
+
+Paragraph with internal cross-reference to <<section-a>>
+
+[listing]
+....
+[#section-b]
+=== Section with Custom Id
+
+Paragraph with internal cross-reference to <<section-b>>
+....
+
+[#section-b]
+=== Section with Custom Id
+
+Paragraph with internal cross-reference to <<section-b>>
+
+
+[WARNING]
+====
+Links from one page to an inline anchor within another page are currently not supported.
+====
+
+= Paragraphs
+
+AsciiDoc paragraphs are translated to Confluence paragraphs, supporting all typical styles, for example:
+
+[listing]
+....
+This is a paragraph with *bold* text.
+....
+
+This is a paragraph with *bold* text.
+
+
+[listing]
+....
+This is a paragraph with _italic_ text.
+....
+This is a paragraph with _italic_ text.
+
+
+[listing]
+....
+This is a paragraph with `monospaced` text.
+....
+This is a paragraph with `monospaced` text.
+
+
+[listing]
+....
+This is a paragraph with `*_monospaced bold italic_*` text.
+....
+
+This is a paragraph with `*_monospaced bold italic_*` text.
+
+
+[listing]
+....
+This is a paragraph with ^super^script and ~sub~script text.
+....
+This is a paragraph with ^super^script and ~sub~script text.
+
+[listing]
+....
+.This the title of a paragraph
+The title of a paragraph will rendered using a custom CSS class `cp-paragraph-title`
+....
+
+.This the title of a paragraph
+The title of a paragraph will rendered using a custom CSS class `cp-paragraph-title`
 
 endif::[]
 // ==== 
