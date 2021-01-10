@@ -33,10 +33,6 @@ endif::[]
 
 :leveloffset: +1
 
-include::_cross-references.adoc[]
-
-<<<
-
 include::00-index.adoc[General Info]
 
 <<<
@@ -50,3 +46,8 @@ include::00-index/Diagrams.adoc[Diagrams]
 <<<
 
 include::00-index/CICD.adoc[CICD]
+
+<<<
+
+// Annexes
+include::_cross-references.adoc[]
