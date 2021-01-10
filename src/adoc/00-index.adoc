@@ -36,6 +36,110 @@ Nowadays, projects hosted on GitHub often use a *documentation-as-code*, where d
 
 *Asciidoctor* is a fast text processor and publishing toolchain for converting AsciiDoc content to HTML5, EPUB3, PDF, DocBook 5
 
+
+
+
+
+
+== Tools
+
+This section describes tools commonly used to do perform proper documentation.
+
+* Writing text:
+** Visual Studio Code and plugins for link:https://github.com/plantuml/plantuml[PlantUML] and AsciiDoc.
+
+* Diagrams:
+** Architecture with link:https://diagrams.mingrammer.com/docs/guides/diagram[Diagrams]
+** Classes, Use case, Flow diagrams with link:https://github.com/plantuml/plantuml[PlantUML]
+
+* Publishing
+** To PDF/HTML/EPUB : link:https://asciidoctor.org/[AsciiDoctor]
+** To Confluence : link:https://github.com/confluence-publisher/confluence-publisher[Confluence-Publisher]
+
+== Example
+
+This repository has an example doc which demonstrates publication to the various destination mentioned above.
+
+The sample documentation comes from link:https://github.com/confluence-publisher/confluence-publisher[] (for now)
+
+.Building the toolkit
+[source, bash]
+----
+$ make build
+----
+
+.Building diagrams with mingrammer tool
+[source, bash]
+----
+# Create python assets under *src/adoc/assets* folder (e.g. architecture-hla.py)
+$ make publishAssets
+
+# PNG files will be available under *build/images* folder (e.g. architecture-hla.png)
+----
+
+[TIP]
+====
+Building assets is already part of next actions for PDF or Confluence publish
+====
+
+.Building the documentation as PDF
+[source, bash]
+----
+$ make publishToPDF
+----
+
+[IMPORTANT]
+====
+The documentation PDF book will be found under *build/_SampleProject-Book.pdf*
+====
+
+.Confluence start/stop/clean
+[source, bash]
+----
+$ confluence.start    # Wait a bit for this to settle !
+$ confluence.logs
+$ confluence.stop
+$ confluence.clean
+----
+
+[IMPORTANT]
+====
+Confluence comes from link:https://github.com/confluence-publisher/confluence-publisher-it[]
+This environment has a 3h timeframe license only for testing.
+
+Confluence is available at link:http://localhost:8090[]
+
+The following users are configured:
+- admin/admin
+- confluence-publisher-it/1234
+====
+
+.Building the documentation as Confluence
+[source, bash]
+----
+$ make publishToConfluence
+----
+
+== Links
+
+.Examples
+* link:https://github.com/mraible/infoq-mini-book[InfoQ mini book]
+
+.Diagrams
+* link:https://kroki.io/[Kroki]
+* link:https://github.com/BurntSushi/erd[ERD]
+
+
+
+
+
+
+
+
+
+
+
+
 == How-To
 
 === Editing
