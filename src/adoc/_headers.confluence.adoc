@@ -22,4 +22,6 @@
 This is an automatically generated page.
 Do not edit.
 Source of doc is in link:https://github.com/kalemena/docs-tools[https://github.com/kalemena/docs-tools]
+
+_Version of Confluence Publisher : {confluencePublisherVersion}_
 ====
