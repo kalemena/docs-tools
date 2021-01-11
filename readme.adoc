@@ -13,4 +13,4 @@ Publication of documentation often requires to follow company-rules, and doc-as-
 - HTML
 - Confluence
 
-See link:src/adoc/00-Index.adoc[This project doc] for details on how to achieve this goal.
+See link:https://github.com/kalemena/docs-tools/blob/master/src/adoc/00-index.adoc[This project doc] for details on how to achieve this goal.
