@@ -1,2 +1,4 @@
 *.private
 build
+.asciidoctor
+**/assets/*.png

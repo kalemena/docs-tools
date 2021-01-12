@@ -28,7 +28,7 @@ confluence.clean:
 
 # Builds the assets: python diagrams and/or puml
 publishAssets:
-	source docPublishingScripts.sh && copyFile && buildAssets
+	source docPublishingScripts.sh && buildAssets
 
 # Publishes to Confluence
 # WARNING: Please fill in credentials in .env-confluence

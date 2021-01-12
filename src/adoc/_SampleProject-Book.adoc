@@ -3,7 +3,7 @@
 :encoding: utf-8
 :idprefix:
 :numbered:
-:rootdir: /project/build
+:rootdir: /project/src/adoc
 :giturl: https://github.com/kalemena/docs-tools/tree/master
 :imagesdir: {rootdir}/images
 :binariesdir: https://github.com/kalemena/docs-tools/raw/master/src/adoc/binaries
