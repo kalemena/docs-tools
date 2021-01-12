@@ -59,7 +59,7 @@ publishConfluence()
 
 publishPDF()
 {
-    mkdir -p ${PATH_PROJECT}/build
+    mkdir -p ${PATH_PROJECT}/build/assets
 
     REVISION=${REVISION:-latest}
 
@@ -71,7 +71,10 @@ publishPDF()
         docker run ${DOCKER_USERID_ARG} --rm --name docsbuild \
             -v ${PATH_PROJECT}:/project \
             asciidoctor/docker-asciidoctor \
-            asciidoctor-pdf -a allow-uri-read -a icons=font \
+            asciidoctor-pdf \
+                -a allow-uri-read \
+                -a icons=font \
+                -a imagesoutdir=/project/build/assets \
                 -r asciidoctor-diagram \
                 -D /project/src/adoc -B /project/src/adoc \
                 /project/src/adoc/${FILENAME}
