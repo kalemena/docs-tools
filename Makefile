@@ -1,5 +1,7 @@
 THIS_FILE := $(lastword $(MAKEFILE_LIST))
 
+SHELL := /bin/bash
+
 ################
 # PRE-REQUISITS
 
@@ -26,16 +28,16 @@ confluence.clean:
 
 # Builds the assets: python diagrams and/or puml
 publishAssets:
-	bash ./publishAssets.sh
+	source docPublishingScripts.sh && copyFile && buildAssets
 
 # Publishes to Confluence
 # WARNING: Please fill in credentials in .env-confluence
-publishToConfluence:
-	bash ./publishToConfluence.sh
+publishToConfluence: publishAssets
+	source docPublishingScripts.sh && publishConfluence
 
 # Builds PDF book
-publishToPDF:
-	bash ./publishToPDF.sh
+publishToPDF: publishAssets
+	source docPublishingScripts.sh && publishPDF
 
 # Clean caches
 clean:
