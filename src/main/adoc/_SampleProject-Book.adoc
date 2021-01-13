@@ -3,10 +3,10 @@
 :encoding: utf-8
 :idprefix:
 :numbered:
-:rootdir: /project/src/adoc
+:rootdir: /project/src/main/adoc
 :giturl: https://github.com/kalemena/docs-tools/tree/master
 :imagesdir: {rootdir}/images
-:binariesdir: https://github.com/kalemena/docs-tools/raw/master/src/adoc/binaries
+:binariesdir: https://github.com/kalemena/docs-tools/raw/master/src/main/adoc/binaries
 //:toc: left
 :toclevels: 5
 //:toc-placement: left

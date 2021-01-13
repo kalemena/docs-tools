@@ -10,9 +10,9 @@ endif::[]
 //link:README{outfilesuffix}[README]
 
 ifdef::env-github[]
-:binariesdir: /docs/src/adoc/binaries
+:binariesdir: /docs/src/main/adoc/binaries
 :giturl:
-:imagesdir: /docs/src/adoc/images
+:imagesdir: /docs/src/main/adoc/images
 //:sectlinks:
 //:sectnums:
 // Admonitions
@@ -96,10 +96,10 @@ However Mingrammer remains a standalone tool.
 .Building diagrams with mingrammer tool
 [source, bash]
 ----
-# Create python assets under *src/adoc/assets* folder (e.g. architecture-hla.py)
+# Create python assets under *src/main/adoc/assets* folder (e.g. architecture-hla.py)
 $ make publishAssets
 
-# PNG files will be available under *build/images* folder (e.g. architecture-hla.png)
+# PNG files will be available under *build/adoc/images* folder (e.g. architecture-hla.png)
 ----
 
 .Example diagram

@@ -7,9 +7,9 @@ include::/docs/_headers.confluence.adoc[]
 endif::[]
 
 ifdef::env-github[]
-:binariesdir: /docs/src/adoc/binaries
+:binariesdir: /docs/src/main/adoc/binaries
 :giturl:
-:imagesdir: /docs/src/adoc/images
+:imagesdir: /docs/src/main/adoc/images
 // Admonitions
 :tip-caption: :bulb:
 :note-caption: :information_source:

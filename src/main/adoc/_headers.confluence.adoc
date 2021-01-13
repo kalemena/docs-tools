@@ -3,7 +3,7 @@
 :idprefix:
 // :numbered:
 :rootdir: /docs
-//:rootdir: /docs-tools/src/adoc
+//:rootdir: /docs-tools/src/main/adoc
 :giturl: https://github.com/kalemena/docs-tools
 :imagesdir: /docs/images
 :binariesdir: /docs/binaries

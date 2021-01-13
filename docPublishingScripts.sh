@@ -12,7 +12,7 @@ pushd "${PATH_PROJECT}" &>/dev/null || return $? # On error, return error code
 PATH_PROJECT=`pwd -P`
 popd &> /dev/null
 
-PATH_DOC_SRC=${PATH_DOC_SRC:-${PATH_PROJECT}/src/adoc}
+PATH_DOC_SRC=${PATH_DOC_SRC:-${PATH_PROJECT}/src/main/adoc}
 # PATH_DOC_BUILD=${PATH_DOC_BUILD:-${PATH_PROJECT}/build}
 
 echo "===="
@@ -59,7 +59,7 @@ publishConfluence()
 
 publishPDF()
 {
-    mkdir -p ${PATH_PROJECT}/build/assets
+    mkdir -p ${PATH_PROJECT}/build/adoc/assets
 
     REVISION=${REVISION:-latest}
 
@@ -74,13 +74,13 @@ publishPDF()
             asciidoctor-pdf \
                 -a allow-uri-read \
                 -a icons=font \
-                -a imagesoutdir=/project/build/assets \
+                -a imagesoutdir=/project/build/adoc/assets \
                 -r asciidoctor-diagram \
-                -D /project/src/adoc -B /project/src/adoc \
-                /project/src/adoc/${FILENAME}
+                -D /project/src/main/adoc -B /project/src/main/adoc \
+                /project/src/main/adoc/${FILENAME}
         # -a pdf-style=/docs/themes/advanced-theme.yml
         echo "===="
     done
 
-    mv ${PATH_DOC_SRC}/_*-Book.pdf ${PATH_PROJECT}/build/
+    mv ${PATH_DOC_SRC}/_*-Book.pdf ${PATH_PROJECT}/build/adoc/
 }
