@@ -12,36 +12,28 @@ pushd "${PATH_PROJECT}" &>/dev/null || return $? # On error, return error code
 PATH_PROJECT=`pwd -P`
 popd &> /dev/null
 
-PATH_DOC_SRC=${PATH_DOC_SRC:-${PATH_PROJECT}/src/main/adoc}
-# PATH_DOC_BUILD=${PATH_DOC_BUILD:-${PATH_PROJECT}/build}
-
 echo "===="
 echo "Running as User : ${USERID}:${USERGROUP}"
 echo "Path Project    : ${PATH_PROJECT}"
-echo "Path Doc Src    : ${PATH_DOC_SRC}"
-# echo "Path Doc Build  : ${PATH_DOC_BUILD}"
 # ====
 
 timestamp() {
     echo `date "+%Y-%m-%d %H:%M:%S"`
 }
 
-# copyFile()
-# {
-#     echo "===="
-#     echo "Copying doc content to 'build' folder ..."
-#     docker run ${DOCKER_USERID_ARG} --rm -v ${PATH_PROJECT}:${PATH_PROJECT} alpine rm -rf ${PATH_DOC_BUILD} && cp -r ${PATH_DOC_SRC} ${PATH_DOC_BUILD}
-#     echo "===="
-# }
-
 buildAssets()
 {
     echo "===="
     echo "Building 'assets' ..."
+
+    # Mingrammer will be generated in below folder
+    mkdir -p ${PATH_PROJECT}/build/adoc/assets
+
     docker run ${DOCKER_USERID_ARG} --rm \
-        -v ${PATH_DOC_SRC}:/docs \
-        -w /docs/assets kalemena/diagrams:latest bash \
-        -c 'for FILE in /docs/assets/*.py; do python ${FILE}; done && pwd && ls -la && mv /docs/assets/*.png /docs/images/'
+        -v ${PATH_PROJECT}:/project \
+        -w /project/src/main/adoc/assets \
+        kalemena/diagrams:latest bash \
+            -c 'for FILE in *.py; do python ${FILE}; done && pwd && ls -la && mv *.png /project/src/main/adoc/images/'
     echo "===="
 }
 
@@ -49,21 +41,23 @@ publishConfluence()
 {
     echo "===="
     echo "Publishing to Confluence ..."
-    docker run ${DOCKER_USERID_ARG} --rm --env-file .env-confluence \
+    docker run ${DOCKER_USERID_ARG} --rm \
+        --env-file .env-confluence \
         --network docs-tools_default \
         -e ATTRIBUTES="{ \"confluencePublisherVersion\": \"0.0.0-SNAPSHOT\"}" \
-        -v ${PATH_DOC_SRC}:/docs \
+        -v ${PATH_PROJECT}:/project \
         confluencepublisher/confluence-publisher:0.0.0-SNAPSHOT
     echo "===="
 }
 
 publishPDF()
 {
+    # PlantUML will be generated in below folder
     mkdir -p ${PATH_PROJECT}/build/adoc/assets
 
     REVISION=${REVISION:-latest}
 
-    for FILE in ${PATH_DOC_SRC}/_*-Book.adoc; do 
+    for FILE in ${PATH_PROJECT}/src/main/adoc/_*-Book.adoc; do 
         echo "===="
         FILENAME=$(/usr/bin/basename "${FILE}")
         echo "Publishing to PDF ... ${FILENAME}"
@@ -82,5 +76,5 @@ publishPDF()
         echo "===="
     done
 
-    mv ${PATH_DOC_SRC}/_*-Book.pdf ${PATH_PROJECT}/build/adoc/
+    mv ${PATH_PROJECT}/src/main/adoc/_*-Book.pdf ${PATH_PROJECT}/build/adoc/
 }

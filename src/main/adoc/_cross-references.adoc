@@ -1,9 +1,9 @@
 = Cross-References
 
 ifdef::env-github[]
-:binariesdir: /docs/src/main/adoc/binaries
+:binariesdir: /project/src/main/adoc/binaries
 :giturl:
-:imagesdir: /docs/src/main/adoc/images
+:imagesdir: /project/src/main/adoc/images
 //:sectlinks:
 //:sectnums:
 // Admonitions

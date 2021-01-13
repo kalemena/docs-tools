@@ -13,12 +13,12 @@ services:
      - "8090:8090"
      - "8091:8091"
 
-  publisher-confluence:
-    image: confluencepublisher/confluence-publisher:0.0.0-SNAPSHOT
-    user: ${DOCKER_USERID:-1000:1000}
-    env_file:
-      - .env-confluence
-    # environment:
-    #   - ATTRIBUTES={ "confluencePublisherVersion": "0.0.0-SNAPSHOT" }
-    volumes:
-      - ./build:/docs
+  # publisher-confluence:
+  #   image: confluencepublisher/confluence-publisher:0.0.0-SNAPSHOT
+  #   user: ${DOCKER_USERID:-1000:1000}
+  #   env_file:
+  #     - .env-confluence
+  #   # environment:
+  #   #   - ATTRIBUTES={ "confluencePublisherVersion": "0.0.0-SNAPSHOT" }
+  #   volumes:
+  #     - ./build:/docs

@@ -2,11 +2,11 @@
 :library: Asciidoctor
 :idprefix:
 // :numbered:
-:rootdir: /docs
+:rootdir: /project/src/main/adoc
 //:rootdir: /docs-tools/src/main/adoc
 :giturl: https://github.com/kalemena/docs-tools
-:imagesdir: /docs/images
-:binariesdir: /docs/binaries
+:imagesdir: /project/src/main/adoc/images
+:binariesdir: /project/src/main/adoc/binaries
 :toc: left
 :toclevels: 5
 :toc-placement: left
@@ -14,7 +14,7 @@
 :doctype: book
 :icons: font
 :icon-set: octicon
-:title-logo-image: /docs/images/syrup.png
+:title-logo-image: /project/src/main/adoc/images/syrup.png
 :source-autofit:
 
 [IMPORTANT]
