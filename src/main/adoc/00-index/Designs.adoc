@@ -90,41 +90,39 @@ public class MyCode {
 }
 ----
 
-// == Source Blocks from External Files (Full Content)
+== Source Blocks from External Files (Full Content)
 
-// Including source code from external files is supported:
+Including source code from external files is supported:
 
-// [listing]
-// ....
-// [source,java]
-// ----
-// \include::../files/Source.java[]
-// ----
-// ....
+[listing]
+....
+[source,java]
+----
+\include::../files/Source.java[]
+----
+....
 
-// [source,java]
-// ----
-// include::../files/Source.java[]
-// ----
+[source,java]
+----
+include::../../java/com/kalemena/project/Source.java[]
+----
 
+== Source Blocks from External Files (Partial Content)
 
+Restricting the source code to be included based on tags is supported:
 
-// == Source Blocks from External Files (Partial Content)
+[listing]
+....
+[source,java]
+----
+\include::../../java/com/kalemena/project/SourceWithMethodTag.java[tags=myMethod]
+----
+....
 
-// Restricting the source code to be included based on tags is supported:
-
-// [listing]
-// ....
-// [source,java]
-// ----
-// \include::../files/SourceWithMethodTag.java[tags=myMethod]
-// ----
-// ....
-
-// [source,java]
-// ----
-// include::../files/SourceWithMethodTag.java[tags=myMethod]
-// ----
+[source,java]
+----
+include::../../java/com/kalemena/project/SourceWithMethodTag.java[tags=myMethod]
+----
 
 [WARNING]
 ====
