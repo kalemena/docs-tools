@@ -7,6 +7,7 @@
 :giturl: https://github.com/kalemena/docs-tools
 :imagesdir: /project/src/main/adoc/images
 :binariesdir: /project/src/main/adoc/binaries
+:assetsdir: /project/src/main/adoc/assets
 :toc: left
 :toclevels: 5
 :toc-placement: left

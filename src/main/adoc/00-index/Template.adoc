@@ -1,0 +1,299 @@
+= Template
+:toc: macro
+:hardbreaks:
+
+ifdef::confluencePublisherVersion[]
+include::/project/src/main/adoc/includes/_headers.confluence.adoc[]
+endif::[]
+
+ifdef::env-github[]
+:binariesdir: /project/src/main/adoc/binaries
+:giturl:
+:imagesdir: /project/src/main/adoc/images
+// Admonitions
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+ifdef::env-github,confluencePublisherVersion[]
+== Table of Content
+toc::[]
+endif::[]
+
+This page demonstrates some of what could be found in an *Asciidoc* documentation.
+
+== Images
+
+Sample Mingrammer python diagram:
+
+image:{imagesdir}/architecture-hla.png[]
+
+// image:{imagesdir}/pipeline-build.png[Pipeline Build, width=100, height=50, link=https://en.wikipedia.org/wiki/Frisbee]
+
+NOTE: See <<How-To.adoc#, How-To>> in Mingrammer Diagrams section for details.
+
+== Listing
+
+This block is used to skip rendering.
+
+[listing]
+....
+= Document Title
+....
+
+== Sources Block
+
+This block is used to embed a chunk of file or code.
+
+Source blocks are converted using the "code" macro. Only languages supported by the Code Block Macro can be used:
+`actionscript3`, `applescript`, `bash`, `c#`, `cpp`, `css`, `coldfusion`, `delphi`, `diff`, `erl`, `groovy`,
+`xml`, `java`, `jfx`, `js`, `php`, `perl`, `text`, `powershell`, `py`, `ruby`, `sql`, `sass`, `scala`,
+`vb`, `yml` (since Confluence 6.7 only)
+
+Example XML block:
+
+[source,xml]
+.pom.xml
+----
+<build>
+  <plugins>
+    <plugin>
+      <groupId>org.sahli.asciidoc.confluence.publisher</groupId>
+      <artifactId>asciidoc-confluence-publisher-maven-plugin</artifactId>
+      <version><!-- insert version here --></version>
+      <configuration>
+        <asciidocRootFolder>etc/docs</asciidocRootFolder>
+        <sourceEncoding>UTF-8<sourceEncoding> <!-- default -->
+        <rootConfluenceUrl>http://localhost:8090</rootConfluenceUrl>
+        <skipSslVerification>false</skipSslVerification>
+        <spaceKey>SPACE</spaceKey>
+        <ancestorId>327706</ancestorId>
+        <username>username</username> <!-- or read from property -->
+        <password>password</password> <!-- or read from property -->
+        <pageTitlePrefix xml:space="preserve">Doc :: </pageTitlePrefix>
+        <pageTitleSuffix xml:space="preserve"> [${project.version}]</pageTitleSuffix>
+        <versionMessage>Version ${project.version}</versionMessage>
+        <attributes>
+            <version>${project.version}</version>
+            <someOtherKey>value</someOtherKey>
+        </attributes>
+      </configuration>
+    </plugin>
+  </plugins>
+</build>
+----
+
+Example Java block:
+
+[source,java]
+----
+public class MyCode {
+    // comment
+}
+----
+
+== Source Blocks from External Files (Full Content)
+
+Including source code from external files is supported:
+
+// [listing]
+// ....
+// [source,java]
+// ----
+// \include::../files/Source.java[]
+// ----
+// ....
+
+[source,java]
+----
+include::../../java/com/kalemena/project/Source.java[]
+----
+
+== Source Blocks from External Files (Partial Content)
+
+Restricting the source code to be included based on tags is supported:
+
+// [listing]
+// ....
+// [source,java]
+// ----
+// \include::../../java/com/kalemena/project/SourceWithMethodTag.java[tags=myMethod]
+// ----
+// ....
+
+[source,java]
+----
+include::../../java/com/kalemena/project/SourceWithMethodTag.java[tags=myMethod]
+----
+
+[WARNING]
+====
+Other advanced features like listing file names or callouts are not supported.
+====
+
+== Tables
+
+Example simple Table:
+
+|===
+| Configuration Property | Description | Constraint
+
+| rootConfluenceUrl
+| The root URL of the Confluence instance to publish to.
+  +
+  +
+  _Note:_ when publishing to Confluence Cloud, the root URL is https://<project>.atlassian.net/wiki.
+| mandatory
+
+| ancestorId
+| The id of the ancestor page under which the pages are appended.
+
+  Be aware that publishing will remove all pages under the configured ancestor id that are not part of the published
+  documentation ("orphaned pages").
+| mandatory
+
+| password
+| The password of the user to use for publishing.
+  +
+  +
+  _Note:_ when publishing to Confluence Cloud, an API token generated via the corresponding Atlassian account has to
+  be used as password.
+| mandatory
+
+| publishingStrategy
+a| The strategy to use when publishing to confluence. Possible values:
+
+* `APPEND_TO_ANCESTOR`: append the published pages to the ancestor and remove all orphaned pages
+* `REPLACE_ANCESTOR`: replace the title and the content of the ancestor with those of the one single root page and
+remove all orphaned pages (requires the documentation source structure to contain exactly one single root page)
+
+| optional (defaults to `APPEND_TO_ANCESTOR`)
+
+|===
+
+== Attachments
+
+If an AsciiDoc file references a non-AsciiDoc file (e.g. a text file, PDF, ...) that non-AsciiDoc file is automatically added as an attachment to the corresponding Confluence page. Referenced non-AsciiDoc files are resolved relative to the location of the referencing AsciiDoc file.
+
+ Attachment links may specify a label.
+
+// [listing]
+// ....
+// link:../files/attachment.txt[Attachment]
+// ....
+
+link:{binariesdir}/_SampleProject-Book.pdf[Example of rendered PDF]
+
+== Includes
+
+[NOTE]
+====
+Include files must be prefixed with an underscore.
+====
+
+// [listing]
+// ....
+// \include::_included-content.adoc[]
+// ....
+
+include::Template/_included-content.adoc[]
+
+== Links within Pages
+
+Links to content blocks within the same page are supported using AsciiDoc inline anchors and internal cross references:
+
+// [listing]
+// ....
+// [[paragraph-a]]Paragraph with inline anchor
+
+// Another paragraph with internal cross-reference to <<paragraph-a>>
+// ....
+
+[[paragraph-a]]Paragraph with inline anchor
+
+Another paragraph with internal cross-reference to <<paragraph-a>>
+
+Links to sections within the same page are supported either using anchors or custom section ids:
+
+// [listing]
+// ....
+// [[section-a]]
+// === Section with Anchor
+
+// Paragraph with internal cross-reference to <<section-a>>
+// ....
+
+[[section-a]]
+=== Section with Anchor
+
+Paragraph with internal cross-reference to <<section-a>>
+
+// [listing]
+// ....
+// [#section-b]
+// === Section with Custom Id
+
+// Paragraph with internal cross-reference to <<section-b>>
+// ....
+
+[#section-b]
+=== Section with Custom Id
+
+Paragraph with internal cross-reference to <<section-b>>
+
+[WARNING]
+====
+Links from one page to an inline anchor within another page are currently not supported.
+====
+
+== Paragraphs
+
+AsciiDoc paragraphs are translated to Confluence paragraphs, supporting all typical styles, for example:
+
+// [listing]
+// ....
+// This is a paragraph with *bold* text.
+// ....
+
+This is a paragraph with *bold* text.
+
+// [listing]
+// ....
+// This is a paragraph with _italic_ text.
+// ....
+
+This is a paragraph with _italic_ text.
+
+// [listing]
+// ....
+// This is a paragraph with `monospaced` text.
+// ....
+
+This is a paragraph with `monospaced` text.
+
+// [listing]
+// ....
+// This is a paragraph with `*_monospaced bold italic_*` text.
+// ....
+
+This is a paragraph with `*_monospaced bold italic_*` text.
+
+// [listing]
+// ....
+// This is a paragraph with ^super^script and ~sub~script text.
+// ....
+
+This is a paragraph with ^super^script and ~sub~script text.
+
+// [listing]
+// ....
+// .This the title of a paragraph
+// The title of a paragraph will rendered using a custom CSS class `cp-paragraph-title`
+// ....
+
+.This is the title of a paragraph
+The title of a paragraph will rendered using a custom CSS class `cp-paragraph-title`
+

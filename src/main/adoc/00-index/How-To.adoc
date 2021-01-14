@@ -1,0 +1,143 @@
+= How-To
+:toc: macro
+:hardbreaks:
+
+ifdef::confluencePublisherVersion[]
+include::/project/src/main/adoc/includes/_headers.confluence.adoc[]
+endif::[]
+
+ifdef::env-github[]
+:binariesdir: /project/src/main/adoc/binaries
+:giturl:
+:imagesdir: /project/src/main/adoc/images
+// Admonitions
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+ifdef::env-github,confluencePublisherVersion[]
+== Table of Content
+toc::[]
+endif::[]
+
+This chapter shows how to edit and publish documentation to the various destination mentioned above.
+
+== Pre-Requisits
+
+.Building the few docker image in this repository
+[source, bash]
+----
+$ make build
+----
+
+== Editing
+
+Using *Visual Studio Code*, install plugings such as *AsciiDoc* in order to render the *.adoc* files.
+
+Follow syntax as documented in link:https://asciidoctor.org/docs/user-manual[AsciiDoctor User Manual]
+
+== Mingrammer Diagrams (standalone)
+
+link:https://diagrams.mingrammer.com/docs/guides/diagram[Mingrammer] is tool of choice for architecture diagram as code.
+Files are standard python files, easily understandable.
+
+See example at link:{assetsdir}/architecture-hla.py[architecture-hla.py]
+
+[TIP]
+====
+Building assets is already part of next commands used to publish to PDF or Confluence.
+However Mingrammer remains a standalone tool.
+====
+
+.Building diagrams with mingrammer tool
+[source, bash]
+----
+# Create python assets under *src/main/adoc/assets* folder (e.g. architecture-hla.py)
+$ make publishAssets
+
+# PNG files will be available under *build/adoc/images* folder (e.g. architecture-hla.png)
+----
+
+.Example diagram
+image:{imagesdir}/architecture-hla.png[Diagram, width=640]
+
+== Publishing
+
+Building and Publishing the documentation can be done with targets:
+
+* Confluence
+* HTML
+* PDF Book
+
+=== Editing/Publishing to PDF
+
+Obviously, PDF are published in the form of *Books* while Confluence are set of *Pages*.
+This make somewhat of a difference, but same doc can however be published to both targets.
+
+.Editing the documentation for publication to PDF
+*_SampleProject-Book.adoc* holds the book, which is essentially a structured set of includes from the various *adoc* files used to publish to Confluence.
+
+NOTE: See link:https://github.com/asciidoctor/asciidoctor-pdf/blob/master/docs/theming-guide.adoc#applying-your-theme[Theming Guide]
+
+.Building the documentation as PDF
+[source, bash]
+----
+$ make publishToPDF
+----
+
+[IMPORTANT]
+====
+The published documentation PDF book will be found under *build/_SampleProject-Book.pdf*
+====
+
+=== Editing/Publishing to Confluence
+
+This requires a Confluence instance, but thankfully a temporary instance can be started on localhost for testing.
+
+.Confluence start/stop/clean
+[source, bash]
+----
+$ confluence.start    # Wait a bit for this to settle !
+$ confluence.logs
+$ confluence.stop
+$ confluence.clean
+----
+
+[IMPORTANT]
+====
+Confluence comes from link:https://github.com/confluence-publisher/confluence-publisher-it[]
+This environment has a 3h timeframe license only for testing.
+
+Confluence is available at link:http://localhost:8090[]
+
+The following users are configured:
+- admin/admin
+- confluence-publisher-it/1234
+====
+
+.Editing the documentation as Confluence
+This is about editing the multiple *adoc* files starting from *00-Index.adoc*, and recursively the folder with same name, etc
+Each Confluence page is matching an *adoc* file, and title is the top first section.
+Sub-pages are the recursive folder themselves holding other *adoc* files.
+
+See link:https://github.com/confluence-publisher/confluence-publisher[Confluence Publisher GIT] for details.
+
+.Setting up the target for publication
+From current folder, edit the file named *.env-confluence* with your credentials. Don't edit anything else.
+
+[TIP]
+====
+ANCESTOR_ID is found by browsing Confluence page and clicking Edit button. 
+The Ancestor Id is the pageId seen in URL such as http://localhost:8090/pages/viewinfo.action?pageId=327706
+====
+
+.Building the documentation as Confluence
+[source, bash]
+----
+$ make publishToConfluence
+----
+
+TIP: The Confluence page will be found under the project page defined as *ANCESTOR_ID*.

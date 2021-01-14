@@ -1,9 +1,9 @@
 = Diagrams
-:toc:
+:toc: macro
 :hardbreaks:
 
 ifdef::confluencePublisherVersion[]
-include::/project/src/main/adoc/_headers.confluence.adoc[]
+include::/project/src/main/adoc/includes/_headers.confluence.adoc[]
 endif::[]
 
 ifdef::env-github[]
@@ -16,6 +16,11 @@ ifdef::env-github[]
 :important-caption: :heavy_exclamation_mark:
 :caution-caption: :fire:
 :warning-caption: :warning:
+endif::[]
+
+ifdef::env-github,confluencePublisherVersion[]
+== Table of Content
+toc::[]
 endif::[]
 
 Here are diagrams which are automatically generated from text.

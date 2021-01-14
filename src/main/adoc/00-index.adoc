@@ -3,7 +3,7 @@
 :hardbreaks:
 
 ifdef::confluencePublisherVersion[]
-include::/project/src/main/adoc/_headers.confluence.adoc[]
+include::/project/src/main/adoc/includes/_headers.confluence.adoc[]
 endif::[]
 
 //ifdef::env-github,confluencePublisherVersion[:outfilesuffix: .adoc]
@@ -23,22 +23,29 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
-[NOTE]
-====
-The documentation is written using AsciiDoc.
-====
-
-== Table Of Content
-
+ifdef::env-github,confluencePublisherVersion[]
+== Table of Content
 toc::[]
+endif::[]
 
 == Description
 
-Nowadays, projects hosted on GitHub often use a *documentation-as-code*, where documentation is written as text using formatting such as *Markdown* or *Asciidoc*
+Nowadays, projects hosted on GitHub often use a *documentation-as-code*, where documentation is written as text using formatting such as *Markdown* or *Asciidoc*.
+*AsciiDoc* is used here because this formatting offers much higher flexibility and features than *Markdown*.
+*AsciiDoc* is as simple as *Markdown* for things that are doable in *Markdown*.
 
-*AsciiDoc* is used here because this formatting offers much higher flexibility and features.
+This Cookbook uses *Asciidoctor* is a fast text processor and publishing toolchain for converting AsciiDoc content to HTML5, EPUB3, PDF, DocBook 5
 
-*Asciidoctor* is a fast text processor and publishing toolchain for converting AsciiDoc content to HTML5, EPUB3, PDF, DocBook 5
+And for *Confluence* publishing, *confluence-publisher* allows, through a pre-defined set of folder structure to publish pages one-to-one with Confluence page hierarchical structure.
+
+*PlantUML* is used to produce various diagrams from text, and Mingrammer python language for Architecture or deployment diagrams.
+
+At last, few *if/else* are used (only at top of each adoc pages) to allow the documentation to be rendered on multiple targets:
+
+- GITHUB
+- PDF
+- HTML
+- Confluence
 
 == Tools
 
@@ -62,315 +69,21 @@ Publishing
 * To PDF/HTML/EPUB : link:https://asciidoctor.org/[AsciiDoctor]
 * To Confluence : link:https://github.com/confluence-publisher/confluence-publisher[Confluence-Publisher]
 
-== How-To
-
-This repository has an example doc which demonstrates publication to the various destination mentioned above.
-
-=== Pre-Requisits
-
-.Building the few docker image in this repository
-[source, bash]
-----
-$ make build
-----
-
-=== Editing
-
-Using *Visual Studio Code*, install plugings such as *AsciiDoc* in order to render the *.adoc* files.
-
-Follow syntax as documented in link:https://asciidoctor.org/docs/user-manual[AsciiDoctor User Manual]
-
-=== Mingrammer Diagrams (standalone)
-
-link:https://diagrams.mingrammer.com/docs/guides/diagram[Mingrammer] is tool of choice for architecture diagram (as code).
-Files are standard python files, easily understandable.
-
-See example at link:assets/architecture-hla.py[]
-
-[TIP]
-====
-Building assets is already part of next commands used to publish to PDF or Confluence.
-However Mingrammer remains a standalone tool.
-====
-
-.Building diagrams with mingrammer tool
-[source, bash]
-----
-# Create python assets under *src/main/adoc/assets* folder (e.g. architecture-hla.py)
-$ make publishAssets
-
-# PNG files will be available under *build/adoc/images* folder (e.g. architecture-hla.png)
-----
-
-.Example diagram
-image:{imagesdir}/architecture-hla.png[Diagram, width=640]
-
-=== Publishing
-
-Building and Publishing the documentation can be done with targets:
-
-* Confluence
-* HTML
-* PDF Book
-
-==== Editing/Publishing to PDF
-
-Obviously, PDF are published in the form of *Books* while Confluence are set of *Pages*.
-This make somewhat of a difference, but same doc can however be published to both targets.
-
-.Editing the documentation for publication to PDF
-*_SampleProject-Book.adoc* holds the book, which is essentially a structured set of includes from the various *adoc* files used to publish to Confluence.
-
-NOTE: See link:https://github.com/asciidoctor/asciidoctor-pdf/blob/master/docs/theming-guide.adoc#applying-your-theme[Theming Guide]
-
-.Building the documentation as PDF
-[source, bash]
-----
-$ make publishToPDF
-----
-
-[IMPORTANT]
-====
-The published documentation PDF book will be found under *build/_SampleProject-Book.pdf*
-====
-
-==== Editing/Publishing to Confluence
-
-This requires a Confluence instance, but thankfully a temporary instance can be started on localhost for testing.
-
-.Confluence start/stop/clean
-[source, bash]
-----
-$ confluence.start    # Wait a bit for this to settle !
-$ confluence.logs
-$ confluence.stop
-$ confluence.clean
-----
-
-[IMPORTANT]
-====
-Confluence comes from link:https://github.com/confluence-publisher/confluence-publisher-it[]
-This environment has a 3h timeframe license only for testing.
-
-Confluence is available at link:http://localhost:8090[]
-
-The following users are configured:
-- admin/admin
-- confluence-publisher-it/1234
-====
-
-.Editing the documentation as Confluence
-This is about editing the multiple *adoc* files starting from *00-Index.adoc*, and recursively the folder with same name, etc
-Each Confluence page is matching an *adoc* file, and title is the top first section.
-Sub-pages are the recursive folder themselves holding other *adoc* files.
-
-See link:https://github.com/confluence-publisher/confluence-publisher[Confluence Publisher GIT] for details.
-
-.Setting up the target for publication
-From current folder, edit the file named *.env-confluence* with your credentials. Don't edit anything else.
-
-[TIP]
-====
-ANCESTOR_ID is found by browsing Confluence page and clicking Edit button. 
-The Ancestor Id is the pageId seen in URL such as http://localhost:8090/pages/viewinfo.action?pageId=327706
-====
-
-.Building the documentation as Confluence
-[source, bash]
-----
-$ make publishToConfluence
-----
-
-TIP: The Confluence page will be found under the project page defined as *ANCESTOR_ID*.
-
-== Other Links
-
-=== Examples
-
-Examples of *Doc As Code* source repository and rendering below.
-
-Not all are using *AsciiDoc*, however the principle remains the same with text source getting processed and rendered to different targets:
-
-* Microsoft docs with 2000 repos (with per language repo): link:https://github.com/MicrosoftDocs[Microsoft Docs repos in GIT]
-** One of the doc source and rendered:
-*** link:https://github.com/MicrosoftDocs/bot-docs.fr-fr[Microsoft Doc sample in GIT]
-*** link:https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0[Microsoft Doc sample Azure Bot]
-
-* Docker
-** link:https://github.com/docker/docker.github.io[Docker Docs in GIT]
-** link:https://docs.docker.com/[Docker Docs rendered]
-
-* Amazon user guides:
-** link:https://github.com/awsdocs[Amazon Docs in GIT]
-
-=== Demo
-
-* link:https://github.com/mraible/infoq-mini-book[InfoQ mini book]
-
-=== Diagrams
-
-* link:https://kroki.io/[Kroki]
-* link:https://github.com/BurntSushi/erd[ERD]
-
-=== Applications & Tools
-
-ASCIIDOC is tool of choice for all Designs, Architecture, Deployment Guides and User Guides.
-
-* Applications:
-** link:http://www.graphviz.org/download/[GraphViz] 
-** link:https://doctoolchain.github.io/docToolchain/[DocToolChain] and link:https://github.com/docToolchain[DocToolChain GIT] *TOBETESTED more*
-** link:https://asciidocfx.com/[Asciidoc FX] with link:https://github.com/asciidocfx/AsciidocFX[Asciidoc FX GIT] *TOBETESTED*
-
-* Chrome extensions:
-** link:https://github.com/asciidoctor/docker-asciidoctor/blob/master/tests/fixtures/epub-sample/asciidoctor-js-browser-extension.adoc[Asciidoc JS Browser Extension]
-** link:https://github.com/asciidoctor/docker-asciidoctor/blob/master/tests/fixtures/epub-sample/i18n.adoc[Unicode tips]
-** link:https://github.com/asciidoctor/docker-asciidoctor/tree/master/tests[Tests]
-
-* Sources:
-** link:https://github.com/Zenika/adoc-presentation-model[Doc As Code Slides]
-
-* Sanitize/Linters:
-** link:https://github.com/redpen-cc/redpen[]
-** link:https://errata-ai.gitbook.io/vale/[]
-
-* GitPitch
-** link:https://docs.gitpitch.com/#/diagrams/cloud-architecture[]
-
-
-
-
-
-
-
-// ==== HTML
-
-// WARNING: FIXME
-
-// FIXME: link:https://darshandsoni.com/asciidoctor-skins/[Theming]
-
-// == Tips
-
-// Here are few tips: 
-
-// * link:https://github.com/asciidoctor/docker-asciidoctor[Asciidoctor Docker image]
-// * link:https://bcouetil.gitlab.io/academy/BP-asciidoc.html[AsciiDoc Tips @ Zenika]
 
 // ==== Confluence/GIT Specific (not in PDF)
-// ifdef::env-github,confluencePublisherVersion[]
+ifdef::env-github,confluencePublisherVersion[]
 
-// == Chapters
+// Show Chapters which are sub-pages links
+== Chapters
 
-// ifdef::env-github[]
-// * <<_cross-references.adoc#, Cross References>>
-// endif::[]
+* <<00-index/How-To.adoc#, How-To>>
+* <<00-index/Template.adoc#, Template>>
+* <<00-index/Diagrams.adoc#, Diagrams>>
 
-// * <<00-index/Designs.adoc#, Designs>>
-// * <<00-index/Diagrams.adoc#, Diagrams>>
-// * <<00-index/CICD.adoc#, CICD>>
+// Show cross-references
+include::includes/_cross-references.adoc[leveloffset=+1]
+ifdef::env-github[]
+* <<includes/_cross-references.adoc#, Cross References>>
+endif::[]
 
-// == Links within Pages
-
-// Links to content blocks within the same page are supported using AsciiDoc inline anchors and internal cross references:
-
-// [listing]
-// ....
-// [[paragraph-a]]Paragraph with inline anchor
-
-// Another paragraph with internal cross-reference to <<paragraph-a>>
-// ....
-
-// [[paragraph-a]]Paragraph with inline anchor
-
-// Another paragraph with internal cross-reference to <<paragraph-a>>
-
-// Links to sections within the same page are supported either using anchors or custom section ids:
-
-// [listing]
-// ....
-// [[section-a]]
-// === Section with Anchor
-
-// Paragraph with internal cross-reference to <<section-a>>
-// ....
-
-// [[section-a]]
-// === Section with Anchor
-
-// Paragraph with internal cross-reference to <<section-a>>
-
-// [listing]
-// ....
-// [#section-b]
-// === Section with Custom Id
-
-// Paragraph with internal cross-reference to <<section-b>>
-// ....
-
-// [#section-b]
-// === Section with Custom Id
-
-// Paragraph with internal cross-reference to <<section-b>>
-
-
-// [WARNING]
-// ====
-// Links from one page to an inline anchor within another page are currently not supported.
-// ====
-
-// = Paragraphs
-
-// AsciiDoc paragraphs are translated to Confluence paragraphs, supporting all typical styles, for example:
-
-// [listing]
-// ....
-// This is a paragraph with *bold* text.
-// ....
-
-// This is a paragraph with *bold* text.
-
-
-// [listing]
-// ....
-// This is a paragraph with _italic_ text.
-// ....
-// This is a paragraph with _italic_ text.
-
-
-// [listing]
-// ....
-// This is a paragraph with `monospaced` text.
-// ....
-// This is a paragraph with `monospaced` text.
-
-
-// [listing]
-// ....
-// This is a paragraph with `*_monospaced bold italic_*` text.
-// ....
-
-// This is a paragraph with `*_monospaced bold italic_*` text.
-
-
-// [listing]
-// ....
-// This is a paragraph with ^super^script and ~sub~script text.
-// ....
-// This is a paragraph with ^super^script and ~sub~script text.
-
-// [listing]
-// ....
-// .This the title of a paragraph
-// The title of a paragraph will rendered using a custom CSS class `cp-paragraph-title`
-// ....
-
-// .This the title of a paragraph
-// The title of a paragraph will rendered using a custom CSS class `cp-paragraph-title`
-
-// endif::[]
-// // ==== 
-
-// // ==== Annexes
-// ifdef::confluencePublisherVersion[]
-// include::_cross-references.adoc[leveloffset=+1]
-// endif::[]
-// // ==== Annexes
+endif::[]

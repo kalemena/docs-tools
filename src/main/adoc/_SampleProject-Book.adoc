@@ -4,9 +4,10 @@
 :idprefix:
 :numbered:
 :rootdir: /project/src/main/adoc
-:giturl: https://github.com/kalemena/docs-tools/tree/master
 :imagesdir: {rootdir}/images
+:giturl: https://github.com/kalemena/docs-tools/tree/master
 :binariesdir: https://github.com/kalemena/docs-tools/raw/master/src/main/adoc/binaries
+:assetsdir: https://github.com/kalemena/docs-tools/raw/master/src/main/adoc/assets
 //:toc: left
 :toclevels: 5
 //:toc-placement: left
@@ -28,7 +29,7 @@
 = Sample Project
 
 ifdef::backend-pdf[]
-IMPORTANT: This is an automatically generated document.
+IMPORTANT: This is an automatically generated document written using AsciiDoc.
 endif::[]
 
 :leveloffset: +1
@@ -37,7 +38,11 @@ include::00-index.adoc[General Info]
 
 <<<
 
-include::00-index/Designs.adoc[Designs]
+include::00-index/How-To.adoc[How-To]
+
+<<<
+
+include::00-index/Template.adoc[Template]
 
 <<<
 
@@ -45,9 +50,4 @@ include::00-index/Diagrams.adoc[Diagrams]
 
 <<<
 
-include::00-index/CICD.adoc[CICD]
-
-<<<
-
-// Annexes
-include::_cross-references.adoc[]
+include::includes/_cross-references.adoc[]
