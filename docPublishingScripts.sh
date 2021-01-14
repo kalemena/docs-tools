@@ -32,7 +32,7 @@ buildAssets()
     docker run ${DOCKER_USERID_ARG} --rm \
         -v ${PATH_PROJECT}:/project \
         -w /project/src/main/adoc/assets \
-        kalemena/diagrams:latest bash \
+        kalemena/mingrammer-diagrams:latest bash \
             -c 'for FILE in *.py; do python ${FILE}; done && pwd && ls -la && mv *.png /project/src/main/adoc/images/'
     echo "===="
 }
