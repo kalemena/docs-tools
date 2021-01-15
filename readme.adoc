@@ -1,6 +1,5 @@
 = Documentation Tools
 :hardbreaks:
-:toc:
 
 This repository is an attempt to provide resources for *Documentation as Code* and publication in various forms.
 The best available frame to enable Documentation as Code is *ASCIIDOC*.
@@ -8,7 +7,7 @@ The best available frame to enable Documentation as Code is *ASCIIDOC*.
 The goal is to keep documentation within project source code, hence allowing ease update of code and doc.
 
 Publication of documentation often requires to follow company-rules, and doc-as-code allows publication of your docs to at least:
-- inline git doc
+- GitHub
 - PDF
 - HTML
 - Confluence

@@ -81,7 +81,10 @@ ifdef::env-github,confluencePublisherVersion[]
 * <<00-index/Diagrams.adoc#, Diagrams>>
 
 // Show cross-references
+ifdef::confluencePublisherVersion[]
 include::includes/_cross-references.adoc[leveloffset=+1]
+endif::[]
+
 ifdef::env-github[]
 * <<includes/_cross-references.adoc#, Cross References>>
 endif::[]
