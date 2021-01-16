@@ -3,7 +3,7 @@ version: '3.7'
 services:  
 
   diagrams:
-    build: src/main/docker/images/diagrams
+    build: ./images/diagrams
     image: kalemena/mingrammer-diagrams:latest
 
   confluence:

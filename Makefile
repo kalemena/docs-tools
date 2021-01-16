@@ -6,22 +6,22 @@ SHELL := /bin/bash
 # PRE-REQUISITS
 
 build:
-	docker-compose build
+	docker-compose -f src/main/docker/docker-compose.yml build
 
 ##############
 # ENVIRONMENT
 
 confluence.start:
-	docker-compose up -d confluence
+	docker-compose -f src/main/docker/docker-compose.yml up -d confluence
 
 confluence.logs:
-	docker-compose logs -f confluence
+	docker-compose -f src/main/docker/docker-compose.yml logs -f confluence
 
 confluence.stop:
-	docker-compose up -d confluence
+	docker-compose -f src/main/docker/docker-compose.yml up -d confluence
 
 confluence.clean:
-	docker-compose down
+	docker-compose -f src/main/docker/docker-compose.yml down
 
 ########################
 # BUILDING & PUBLISHING
