@@ -32,7 +32,7 @@ endif::[]
 
 Nowadays, projects hosted on GitHub often use a *documentation-as-code*, where documentation is written as text using formatting such as *Markdown* or *Asciidoc*.
 *AsciiDoc* is used here because this formatting offers much higher flexibility and features than *Markdown*.
-*AsciiDoc* is as simple as *Markdown* for things that are doable in *Markdown*.
+*AsciiDoc* is as simple as *Markdown*, for things that are doable in *Markdown*.
 
 This Cookbook uses *Asciidoctor* is a fast text processor and publishing toolchain for converting AsciiDoc content to HTML5, EPUB3, PDF, DocBook 5
 
@@ -58,10 +58,11 @@ General tools enabling *Doc-as-Code*:
 Writing text:
 
 * Visual Studio Code and plugins for link:https://github.com/plantuml/plantuml[PlantUML] and AsciiDoc.
+* link:https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/[Asciidoctor Quick Syntax]
 
 Diagrams:
 
-* Architecture with link:https://diagrams.mingrammer.com/docs/guides/diagram[Diagrams]
+* Architecture with link:https://diagrams.mingrammer.com/docs/guides/diagram[Mingrammer Diagrams]
 * Classes, Use case, Flow diagrams with link:https://github.com/plantuml/plantuml[PlantUML]
 
 Publishing

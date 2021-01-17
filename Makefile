@@ -39,6 +39,10 @@ publishToConfluence: publishAssets
 publishToPDF: publishAssets
 	source docPublishingScripts.sh && publishPDF
 
+# Builds PDF book
+publishToHTML: publishAssets
+	source docPublishingScripts.sh && publishHTML
+
 # Clean caches
 clean:
 	rm -rf $(CURDIR)/build

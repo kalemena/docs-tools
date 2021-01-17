@@ -78,3 +78,30 @@ publishPDF()
 
     mv ${PATH_PROJECT}/src/main/adoc/_*-Book.pdf ${PATH_PROJECT}/build/adoc/
 }
+
+publishHTML()
+{
+    # PlantUML will be generated in below folder
+    mkdir -p ${PATH_PROJECT}/build/adoc/assets
+
+    REVISION=${REVISION:-latest}
+
+    for FILE in ${PATH_PROJECT}/src/main/adoc/_*-Book.adoc; do 
+        echo "===="
+        FILENAME=$(/usr/bin/basename "${FILE}")
+        echo "Publishing to HTML ... ${FILENAME}"
+
+        docker run ${DOCKER_USERID_ARG} --rm --name docsbuild \
+            -v ${PATH_PROJECT}:/project \
+            asciidoctor/docker-asciidoctor \
+            asciidoctor \
+                -a data-uri \
+                -a allow-uri-read \
+                -a icons=font \
+                -r asciidoctor-diagram \
+                /project/src/main/adoc/${FILENAME}
+        echo "===="
+    done
+
+    mv ${PATH_PROJECT}/src/main/adoc/_*-Book.html ${PATH_PROJECT}/build/adoc/
+}
