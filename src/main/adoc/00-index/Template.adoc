@@ -29,7 +29,7 @@ This page demonstrates some of what could be found in an *Asciidoc* documentatio
 
 Sample Mingrammer python diagram:
 
-image:{imagesdir}/architecture-hla.png[]
+image:{imagesdir}/assets-architecture-hla.png[]
 
 // image:{imagesdir}/pipeline-build.png[Pipeline Build, width=100, height=50, link=https://en.wikipedia.org/wiki/Frisbee]
 

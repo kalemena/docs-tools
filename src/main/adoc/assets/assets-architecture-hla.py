@@ -17,7 +17,7 @@ from diagrams.onprem.network import Nginx
 from diagrams.onprem.monitoring import Grafana, Prometheus
 from diagrams.azure.database import BlobStorage
 
-with Diagram("Deployment HLA", filename="architecture-hla", show=False, direction="TB"):
+with Diagram("Deployment HLA", filename="assets-architecture-hla", show=False, direction="TB"):
  
     with Cluster("Group#1") as pe:
 

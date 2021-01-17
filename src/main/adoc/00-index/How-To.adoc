@@ -44,7 +44,7 @@ Follow syntax as documented in link:https://asciidoctor.org/docs/user-manual[Asc
 link:https://diagrams.mingrammer.com/docs/guides/diagram[Mingrammer] is tool of choice for architecture diagram as code.
 Files are standard python files, easily understandable.
 
-See example at link:{assetsdir}/architecture-hla.py[architecture-hla.py]
+See example at link:{assetsdir}/assets-architecture-hla.py[assets-architecture-hla.py]
 
 [TIP]
 ====
@@ -55,14 +55,14 @@ However Mingrammer remains a standalone tool.
 .Building diagrams with mingrammer tool
 [source, bash]
 ----
-# Create python assets under *src/main/adoc/assets* folder (e.g. architecture-hla.py)
+# Create python assets under *src/main/adoc/assets* folder (e.g. assets-architecture-hla.py)
 $ make publishAssets
 
-# PNG files will be available under *build/adoc/images* folder (e.g. architecture-hla.png)
+# PNG files will be available under *build/adoc/images* folder (e.g. assets-architecture-hla.png)
 ----
 
 .Example diagram
-image:{imagesdir}/architecture-hla.png[Diagram, width=640]
+image:{imagesdir}/assets-architecture-hla.png[Diagram, width=640]
 
 == Publishing
 
