@@ -2,3 +2,4 @@
 build
 .asciidoctor
 **/assets/*.png
+assets-*
