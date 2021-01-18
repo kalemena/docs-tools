@@ -12,39 +12,39 @@ build:
 # ENVIRONMENT
 
 confluence.start:
-	docker-compose -f src/main/docker/docker-compose.yml up -d confluence
+	docker-compose -p docs -f src/main/docker/docker-compose.yml up -d confluence
 
 confluence.logs:
-	docker-compose -f src/main/docker/docker-compose.yml logs -f confluence
+	docker-compose -p docs -f src/main/docker/docker-compose.yml logs -f confluence
 
 confluence.stop:
-	docker-compose -f src/main/docker/docker-compose.yml up -d confluence
+	docker-compose -p docs -f src/main/docker/docker-compose.yml up -d confluence
 
 confluence.clean:
-	docker-compose -f src/main/docker/docker-compose.yml down
+	docker-compose -p docs -f src/main/docker/docker-compose.yml down
 
 ########################
 # BUILDING & PUBLISHING
 
 # Builds the assets: python diagrams and/or puml
-publishAssets:
+doc.publishAssets:
 	source docPublishingScripts.sh && buildAssets
 
 # Publishes to Confluence
 # WARNING: Please fill in credentials in .env-confluence
-publishToConfluence: publishAssets
+doc.publishToConfluence: doc.publishAssets
 	source docPublishingScripts.sh && publishConfluence
 
 # Builds PDF book
-publishToPDF: publishAssets
+doc.publishToPDF: doc.publishAssets
 	source docPublishingScripts.sh && publishPDF
 
 # Builds PDF book
-publishToHTML: publishAssets
+doc.publishToHTML: doc.publishAssets
 	source docPublishingScripts.sh && publishHTML
 
 # Clean caches
-clean:
+doc.clean:
 	rm -rf $(CURDIR)/build
 	# docker run --rm -v $(CURDIR):/docs alpine rm -rf /docs/build
 

@@ -43,7 +43,7 @@ publishConfluence()
     echo "Publishing to Confluence ..."
     docker run ${DOCKER_USERID_ARG} --rm \
         --env-file .env-confluence \
-        --network docs-tools_default \
+        --network docs_default \
         -e ATTRIBUTES="{ \"confluencePublisherVersion\": \"0.0.0-SNAPSHOT\"}" \
         -v ${PATH_PROJECT}:/project \
         confluencepublisher/confluence-publisher:0.0.0-SNAPSHOT
