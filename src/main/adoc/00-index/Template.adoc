@@ -185,7 +185,7 @@ If an AsciiDoc file references a non-AsciiDoc file (e.g. a text file, PDF, ...) 
 // link:../files/attachment.txt[Attachment]
 // ....
 
-link:{binariesdir}/_SampleProject-Book.pdf[Example of rendered PDF]
+// link:{binariesdir}/_SampleProject-Book.pdf[Example of rendered PDF]
 
 == Includes
 

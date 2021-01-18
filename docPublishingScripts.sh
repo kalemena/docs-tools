@@ -98,6 +98,8 @@ publishHTML()
                 -a data-uri \
                 -a allow-uri-read \
                 -a icons=font \
+                -a imagesoutdir=/project/build/adoc/assets \
+                -a favicon=images/syrup.png \
                 -r asciidoctor-diagram \
                 /project/src/main/adoc/${FILENAME}
         echo "===="
