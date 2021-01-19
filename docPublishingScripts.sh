@@ -83,7 +83,7 @@ publishHTML()
 {
     # PlantUML will be generated in below folder
     mkdir -p ${PATH_PROJECT}/build/adoc/assets
-    mkdir -p ${PATH_PROJECT}/build/adoc/themes
+    mkdir -p ${PATH_PROJECT}/build/adoc/images
 
     REVISION=${REVISION:-latest}
 
@@ -102,15 +102,18 @@ publishHTML()
                 -a source-highlighter=highlightjs \
                 -a ghlightjs-theme=gruvbox-dark \
                 -a imagesoutdir=/project/build/adoc/assets \
-                -a stylesheet=asciidoctor.css -a stylesdir=themes \
-                -a linkcss=true \
                 -a toc=left \
-                -a favicon=images/syrup.png \
+                -a docinfo=shared \
+                -a favicon=images/favicon.png \
                 -r asciidoctor-diagram \
                 /project/src/main/adoc/${FILENAME}
         echo "===="
     done
 
-    cp ${PATH_PROJECT}/src/main/adoc/themes/*.css ${PATH_PROJECT}/build/adoc/themes/
+    # This is embedded into docinfo.html
+    #-a stylesheet=asciidoctor.css \                 -a stylesdir=themes \                 -a linkcss=true \
+    # cp ${PATH_PROJECT}/src/main/adoc/themes/*.css ${PATH_PROJECT}/build/adoc/themes/
+
+    cp ${PATH_PROJECT}/src/main/adoc/images/favicon.png ${PATH_PROJECT}/build/adoc/images/
     mv ${PATH_PROJECT}/src/main/adoc/_*-Book.html ${PATH_PROJECT}/build/adoc/
 }

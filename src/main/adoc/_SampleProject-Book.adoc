@@ -17,16 +17,16 @@
 :icon-set: octicon
 //:stylesheet: {rootdir}/themes/asciidoctor.css
 :title-page: Sample Project
-:title-logo-image: {rootdir}/images/syrup.png
-//:favicon: {rootdir}/images/syrup.png
-//:front-cover-image: image:/docs/images/syrup.png[]
+:title-logo-image: {rootdir}/images/favicon.png
+//:favicon: {rootdir}/images/favicon.png
+//:front-cover-image: image:/docs/images/favicon.png[]
 :pagenums:
 
 :description: Sample Project - Dev Book
 
 :toc:
 
-//image:{rootdir}/images/syrup.png[Syrup,50,50]
+//image:{rootdir}/images/favicon.png[Syrup,50,50]
 
 = Sample Project
 

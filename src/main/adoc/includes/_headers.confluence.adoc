@@ -15,7 +15,7 @@
 :doctype: book
 :icons: font
 :icon-set: octicon
-:title-logo-image: /project/src/main/adoc/images/syrup.png
+:title-logo-image: /project/src/main/adoc/images/favicon.png
 :source-autofit:
 
 [IMPORTANT]
