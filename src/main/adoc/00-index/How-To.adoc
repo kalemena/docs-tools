@@ -56,7 +56,7 @@ However Mingrammer remains a standalone tool.
 [source, bash]
 ----
 # Create python assets under *src/main/adoc/assets* folder (e.g. assets-architecture-hla.py)
-$ make publishAssets
+$ make doc.publishAssets
 
 # PNG files will be available under *build/adoc/images* folder (e.g. assets-architecture-hla.png)
 ----
@@ -85,7 +85,7 @@ NOTE: See link:https://github.com/asciidoctor/asciidoctor-pdf/blob/master/docs/t
 .Building the documentation as PDF
 [source, bash]
 ----
-$ make publishToPDF
+$ make doc.publishToPDF
 ----
 
 [IMPORTANT]
@@ -137,7 +137,7 @@ The Ancestor Id is the pageId seen in URL such as http://localhost:8090/pages/vi
 .Building the documentation as Confluence
 [source, bash]
 ----
-$ make publishToConfluence
+$ make doc.publishToConfluence
 ----
 
 TIP: The Confluence page will be found under the project page defined as *ANCESTOR_ID*.
