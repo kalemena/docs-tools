@@ -15,8 +15,10 @@
 :doctype: book
 :icons: font
 :icon-set: octicon
+//:stylesheet: {rootdir}/themes/asciidoctor.css
 :title-page: Sample Project
 :title-logo-image: {rootdir}/images/syrup.png
+//:favicon: {rootdir}/images/syrup.png
 //:front-cover-image: image:/docs/images/syrup.png[]
 :pagenums:
 
