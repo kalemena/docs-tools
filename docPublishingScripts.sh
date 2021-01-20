@@ -83,7 +83,7 @@ publishHTML()
 {
     # PlantUML will be generated in below folder
     mkdir -p ${PATH_PROJECT}/build/adoc/assets
-    mkdir -p ${PATH_PROJECT}/build/adoc/images
+    mkdir -p ${PATH_PROJECT}/build/adoc/html/images
 
     REVISION=${REVISION:-latest}
 
@@ -114,6 +114,7 @@ publishHTML()
     #-a stylesheet=asciidoctor.css \                 -a stylesdir=themes \                 -a linkcss=true \
     # cp ${PATH_PROJECT}/src/main/adoc/themes/*.css ${PATH_PROJECT}/build/adoc/themes/
 
-    cp ${PATH_PROJECT}/src/main/adoc/images/favicon.png ${PATH_PROJECT}/build/adoc/images/
-    mv ${PATH_PROJECT}/src/main/adoc/_*-Book.html ${PATH_PROJECT}/build/adoc/
+    cp ${PATH_PROJECT}/src/main/adoc/images/favicon.png ${PATH_PROJECT}/build/adoc/html/images/
+    mv ${PATH_PROJECT}/src/main/adoc/_*-Book.html ${PATH_PROJECT}/build/adoc/html/
+    touch ${PATH_PROJECT}/build/adoc/html/.nojekyll
 }
