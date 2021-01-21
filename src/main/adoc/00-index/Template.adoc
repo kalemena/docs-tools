@@ -33,7 +33,15 @@ image:{imagesdir}/assets-architecture-hla.png[]
 
 // image:{imagesdir}/pipeline-build.png[Pipeline Build, width=100, height=50, link=https://en.wikipedia.org/wiki/Frisbee]
 
+ifndef::env-github,confluencePublisherVersion[]
+NOTE: See <<chapter-How-To, How-To>> in Mingrammer Diagrams section for details.
+endif::[]
+
+ifdef::env-github,confluencePublisherVersion[]
+//NOTE: See <<How-To{outfilesuffix}, How-To>> in Mingrammer Diagrams section for details.
 NOTE: See <<How-To.adoc#, How-To>> in Mingrammer Diagrams section for details.
+endif::[]
+
 
 == Listing
 
