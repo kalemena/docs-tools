@@ -12,11 +12,10 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build Docker Images
       env:
-        IMAGE: "kalemena/mingrammer"
+        IMAGE: "kalemena/mingrammer-diagrams"
         VERSION: "0.18.0"
       run: |
         docker -v
-        docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
         docker pull python:3.9-alpine
         docker pull ${IMAGE}:${VERSION} || true
         cd docker
@@ -29,6 +28,7 @@ jobs:
         docker ps -a
         docker tag ${IMAGE}:${VERSION} ${IMAGE}:latest
         docker images
+        docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
         docker push ${IMAGE}:${VERSION}
         docker push ${IMAGE}:latest
         docker logout
