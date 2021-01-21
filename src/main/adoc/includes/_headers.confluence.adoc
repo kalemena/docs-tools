@@ -17,6 +17,7 @@
 :icon-set: octicon
 :title-logo-image: /project/src/main/adoc/images/favicon.png
 :source-autofit:
+:outfilesuffix: .adoc#
 
 [IMPORTANT]
 ====

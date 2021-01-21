@@ -1,3 +1,4 @@
+[[How-To]]
 = How-To
 :toc: macro
 :hardbreaks:
@@ -25,7 +26,6 @@ endif::[]
 
 This chapter shows how to edit and publish documentation to the various destination mentioned above.
 
-[[chapter-How-To]]
 == Pre-Requisits
 
 .Building the few docker image in this repository
