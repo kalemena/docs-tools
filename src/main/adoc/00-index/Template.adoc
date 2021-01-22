@@ -21,7 +21,6 @@ endif::[]
 
 ifndef::env-github,confluencePublisherVersion[]
 :outfilesuffix:
-//:outfileprefix: chapter-
 endif::[]
 
 ifdef::env-github,confluencePublisherVersion[]

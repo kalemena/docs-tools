@@ -17,7 +17,6 @@ jobs:
       run: |
         docker -v
         docker pull python:3.9-alpine
-        docker pull ${IMAGE}:${VERSION} || true
         cd docker
         docker build --pull --cache-from ${IMAGE}:${VERSION} \
           -t ${IMAGE}:${VERSION} \
