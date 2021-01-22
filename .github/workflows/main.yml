@@ -17,7 +17,7 @@ jobs:
       run: |
         docker -v
         docker pull python:3.9-alpine
-        cd docker
+        cd src/main/docker/images/diagrams
         docker build --pull --cache-from ${IMAGE}:${VERSION} \
           -t ${IMAGE}:${VERSION} \
           -f Dockerfile \
