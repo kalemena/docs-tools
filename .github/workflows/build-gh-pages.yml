@@ -1,4 +1,4 @@
-name: Pipeline
+name: Pipeline GitHubPages
 
 on: workflow_dispatch
 
