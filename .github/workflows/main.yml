@@ -34,6 +34,7 @@ jobs:
     - name: Build HTML doc
       run: |
         make doc.publishToHTML
+        mv ./build/adoc/html/_SampleProject-Book.html ./build/adoc/html/index.html
     - name: Publish as gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
