@@ -28,7 +28,9 @@ ifdef::env-github,confluencePublisherVersion[]
 toc::[]
 endif::[]
 
-This page demonstrates some of what could be found in an *Asciidoc* documentation.
+This chapter demonstrates some of what could be found in an *Asciidoc* documentation.
+
+TIP: To see each of the below doc, as code, check the link:{giturl}/src/main/adoc/00-index/Template.adoc[raw source]
 
 == Images
 
@@ -60,6 +62,8 @@ Source blocks are converted using the "code" macro. Only languages supported by 
 
 Example XML block:
 
+[%collapsible]
+====
 [source,xml]
 .pom.xml
 ----
@@ -90,6 +94,7 @@ Example XML block:
   </plugins>
 </build>
 ----
+====
 
 Example Java block:
 

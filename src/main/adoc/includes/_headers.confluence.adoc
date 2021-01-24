@@ -4,7 +4,7 @@
 // :numbered:
 :rootdir: /project/src/main/adoc
 //:rootdir: /docs-tools/src/main/adoc
-:giturl: https://github.com/kalemena/docs-tools
+:giturl: https://github.com/kalemena/docs-tools/raw/master
 :imagesdir: /project/src/main/adoc/images
 :binariesdir: /project/src/main/adoc/binaries
 :assetsdir: /project/src/main/adoc/assets

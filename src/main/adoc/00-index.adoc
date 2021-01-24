@@ -34,41 +34,35 @@ Nowadays, projects hosted on GitHub often use a *documentation-as-code*, where d
 *AsciiDoc* is used here because this formatting offers much higher flexibility and features than *Markdown*.
 *AsciiDoc* is as simple as *Markdown*, for things that are doable in *Markdown*.
 
-This Cookbook uses *Asciidoctor* is a fast text processor and publishing toolchain for converting AsciiDoc content to HTML5, EPUB3, PDF, DocBook 5
+This Cookbook uses *Asciidoctor*, a fast text processor and publishing toolchain for converting AsciiDoc content to HTML5, EPUB3, PDF, DocBook 5
 
-And for *Confluence* publishing, *confluence-publisher* allows, through a pre-defined set of folder structure to publish pages one-to-one with Confluence page hierarchical structure.
+For *Confluence* publishing, *confluence-publisher* allows, through a pre-defined set of folder structure to publish pages one-to-one with Confluence page hierarchical structure.
 
 *PlantUML* is used to produce various diagrams from text, and Mingrammer python language for Architecture or deployment diagrams.
 
-At last, few *if/else* are used (only at top of each adoc pages) to allow the documentation to be rendered on multiple targets:
+At last, few *if/else* are used (mostly at top of each adoc pages) to allow the documentation to be rendered on multiple targets:
 
-- GITHUB
+- GitHub
 - PDF
 - HTML
 - Confluence
 
 == Tools
 
-General tools enabling *Doc-as-Code*:
-
-* link:https://asciidoctor.org/docs/user-manual[AsciiDoctor User Manual]
-* link:https://confluence-publisher.atlassian.net/wiki/spaces/CPD/overview?mode=global[Confluence Publisher]
-* link:http://www.plantuml.com/plantuml/uml/[PlantUML]
-
-Writing text:
+*Writing text:*
 
 * Visual Studio Code and plugins for link:https://github.com/plantuml/plantuml[PlantUML] and AsciiDoc.
 * link:https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/[Asciidoctor Quick Syntax]
 
-Diagrams:
+*Diagrams:*
 
 * Architecture with link:https://diagrams.mingrammer.com/docs/guides/diagram[Mingrammer Diagrams]
 * Classes, Use case, Flow diagrams with link:https://github.com/plantuml/plantuml[PlantUML]
 
-Publishing
+*Publising tools:*
 
-* To PDF/HTML/EPUB : link:https://asciidoctor.org/[AsciiDoctor]
-* To Confluence : link:https://github.com/confluence-publisher/confluence-publisher[Confluence-Publisher]
+* link:https://asciidoctor.org/[AsciiDoctor] to publish to PDF/HTML/EPUB,etc (link:https://asciidoctor.org/docs/user-manual[AsciiDoctor User Manual])
+* link:https://github.com/confluence-publisher/confluence-publisher[Confluence-Publisher] to publish to Confluence (link:https://confluence-publisher.atlassian.net/wiki/spaces/CPD/overview?mode=global[Confluence Publisher])
 
 
 // ==== Confluence/GIT Specific (not in PDF)

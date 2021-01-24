@@ -31,13 +31,84 @@ This chapter shows how to edit and publish documentation to the various destinat
 .Building the few docker image in this repository
 [source, bash]
 ----
-$ make build
+$ git clone https://github.com/kalemena/docs-tools.git && cd docs-tools
 ----
+
+.This repository folder structure
+[%collapsible]
+====
+[source,bash]
+----
+.
+├── build                                               # <- Generated Build folder
+│   └── adoc
+│       ├── assets                                      # <- PlantUML generated diagrams
+│       │   ├── project_activity_diagram.png
+...
+│       │   └── sample-ui-diagram.png
+│       ├── html                                        # <- HTML Build
+│       │   ├── images
+│       │   │   └── favicon.png
+│       │   └── _SampleProject-Book.html
+│       └── _SampleProject-Book.pdf                     # <- PDF Build
+├── docPublishingScripts.sh                             # <- Scripts with all commands to build
+├── LICENSE
+├── Makefile                                            # <- Entrypoint to run commands
+├── readme.adoc
+└── src                                                 # <- All source folder of an example project (includes Doc, Java, etc)
+    └── main
+        ├── adoc                                        # <- Documentation root
+        │   ├── 00-index
+        │   │   ├── Diagrams.adoc
+        │   │   ├── How-To.adoc
+        │   │   ├── Template
+        │   │   └── Template.adoc
+        │   ├── 00-index.adoc
+        │   ├── assets                                  # <- Assets diagrams, Mingrammer or PlantUML
+        │   │   ├── assets-architecture-hla.py
+        │   │   ├── C4_Component.puml
+        │   │   ├── C4_Container.puml
+        │   │   ├── C4_Context.puml
+        │   │   ├── C4.puml
+        │   │   ├── project_activity_diagram.puml
+        │   │   ├── project_c4_diagram.puml
+        │   │   ├── project_class_diagram_2.puml
+        │   │   ├── project_class_diagram.puml
+        │   │   ├── project_gant_diagram.puml
+        │   │   ├── project_mindmap_diagram.puml
+        │   │   └── project_sequence_diagram.puml
+        │   ├── binaries
+        │   ├── docinfo.html                            # <- Resources to render HTML TOC
+        │   ├── images                                  # <- Images, screenshots, etc which cannot be built from text
+        │   │   ├── assets-architecture-hla.png
+        │   │   ├── favicon.png
+        │   │   ├── icons
+        │   │   └── pipeline-build.png
+        │   ├── includes                                # <- Centralized includes (often used things)
+        │   │   ├── _cross-references.adoc
+        │   │   └── _headers.confluence.adoc
+        │   ├── _SampleProject-Book.adoc
+        │   └── themes                                  # <- PDF/HTML themes
+        │       ├── advanced-theme.yml
+        │       ├── asciidoctor.css
+        │       ├── basic-theme.yml
+        │       └── default-theme.yml
+        ├── docker                                      # <- Images used in this sample project
+        │   ├── docker-compose.yml
+        │   └── images
+        │       ├── confluence                          # <- Confluence temporary instance
+        │       └── diagrams                            # <- Mingrammer image
+        ├── etc                                         # <- Used in includes sample to demo relative path
+        │   └── attachment.txt
+        └── java                                        # <- Used in includes sample to demo relative path
+            └── com
+                └── kalemena
+----
+====
 
 == Editing
 
 Using *Visual Studio Code*, install plugings such as *AsciiDoc* in order to render the *.adoc* files.
-
 Follow syntax as documented in link:https://asciidoctor.org/docs/user-manual[AsciiDoctor User Manual]
 
 == Mingrammer Diagrams (standalone)
@@ -49,7 +120,7 @@ See example at link:{assetsdir}/assets-architecture-hla.py[assets-architecture-h
 
 [TIP]
 ====
-Building assets is already part of next commands used to publish to PDF or Confluence.
+Building assets is already part of next commands used to publish to PDF, HTML or Confluence.
 However Mingrammer remains a standalone tool.
 ====
 
@@ -76,10 +147,11 @@ Building and Publishing the documentation can be done with targets:
 === Editing/Publishing to PDF
 
 Obviously, PDF are published in the form of *Books* while Confluence are set of *Pages*.
+In this project, HTML is published like PDF, as single pages, to make things simple.
 This make somewhat of a difference, but same doc can however be published to both targets.
 
 .Editing the documentation for publication to PDF
-*_SampleProject-Book.adoc* holds the book, which is essentially a structured set of includes from the various *adoc* files used to publish to Confluence.
+*_SampleProject-Book.adoc* file holds the book, which is essentially a structured set of includes from the various *adoc* files used to publish to Confluence.
 
 NOTE: See link:https://github.com/asciidoctor/asciidoctor-pdf/blob/master/docs/theming-guide.adoc#applying-your-theme[Theming Guide]
 
@@ -91,7 +163,7 @@ $ make doc.publishToPDF
 
 [IMPORTANT]
 ====
-The published documentation PDF book will be found under *build/_SampleProject-Book.pdf*
+The published documentation PDF book will be found under *build/adoc/_SampleProject-Book.pdf*
 ====
 
 === Editing/Publishing to Confluence
