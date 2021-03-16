@@ -2,6 +2,8 @@ THIS_FILE := $(lastword $(MAKEFILE_LIST))
 
 SHELL := /bin/bash
 
+.PHONY: build
+
 ################
 # PRE-REQUISITS
 

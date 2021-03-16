@@ -3,7 +3,10 @@ version: '3.7'
 services:  
 
   diagrams:
-    build: ./images/diagrams
+    build:
+      context: ./images/diagrams
+      args:
+        VERSION: 0.19.1
     image: kalemena/mingrammer-diagrams:latest
 
   confluence:
