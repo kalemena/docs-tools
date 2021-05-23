@@ -12,7 +12,7 @@ jobs:
     - name: Build Docker Images
       env:
         IMAGE: "kalemena/mingrammer-diagrams"
-        VERSION: "0.19.1"
+        VERSION: "0.20.0"
       run: |
         docker -v
         docker pull python:3.9-alpine
