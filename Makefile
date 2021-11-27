@@ -30,20 +30,20 @@ confluence.clean:
 
 # Builds the assets: python diagrams and/or puml
 doc.publishAssets:
-	source docPublishingScripts.sh && buildAssets
+	source .github/docPublishingScripts.sh && buildAssets
 
 # Publishes to Confluence
 # WARNING: Please fill in credentials in .env-confluence
 doc.publishToConfluence: doc.publishAssets
-	source docPublishingScripts.sh && publishConfluence
+	source .github/docPublishingScripts.sh && publishConfluence
 
 # Builds PDF book
 doc.publishToPDF: doc.publishAssets
-	source docPublishingScripts.sh && publishPDF
+	source .github/docPublishingScripts.sh && publishPDF
 
 # Builds PDF book
 doc.publishToHTML: doc.publishAssets
-	source docPublishingScripts.sh && publishHTML
+	source .github/docPublishingScripts.sh && publishHTML
 
 # Clean caches
 doc.clean:
