@@ -9,11 +9,11 @@ ARG BUILD_DATE
 ARG VCS_REF
 ARG VERSION
 LABEL org.label-schema.build-date=$BUILD_DATE \
-      org.label-schema.name="Kalemena NodeRed" \
-      org.label-schema.description="Kalemena NodeRed for use in home automation" \
+      org.label-schema.name="Kalemena mingrammer/diagrams" \
+      org.label-schema.description="Kalemena mingrammer/diagrams" \
       org.label-schema.url="private" \
       org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.vcs-url="https://github.com/kalemena/docker-node-red" \
+      org.label-schema.vcs-url="https://github.com/kalemena/docs-tools" \
       org.label-schema.vendor="Kalemena" \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
