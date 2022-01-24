@@ -2,7 +2,7 @@ FROM python:3.9-alpine
 
 # FROM https://github.com/mingrammer/diagrams (under /docker/dev hence preventing direct build)
 
-ARG VERSION=0.20.0
+ARG VERSION=0.21.0
 
 # Build-time metadata as defined at http://label-schema.org
 ARG BUILD_DATE
