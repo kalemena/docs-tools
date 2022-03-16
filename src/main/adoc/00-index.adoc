@@ -47,6 +47,8 @@ At last, few *if/else* are used (mostly at top of each adoc pages) to allow the 
 - HTML
 - Confluence
 
+- Web presentation (HTML with reveal.js)
+
 == Tools
 
 *Writing text:*
@@ -61,9 +63,15 @@ At last, few *if/else* are used (mostly at top of each adoc pages) to allow the 
 
 *Publising tools:*
 
-* link:https://asciidoctor.org/[AsciiDoctor] to publish to PDF/HTML/EPUB,etc (link:https://asciidoctor.org/docs/user-manual[AsciiDoctor User Manual])
+* link:https://asciidoctor.org/[AsciiDoctor] to publish to PDF/HTML/EPUB,etc 
+** link:https://asciidoctor.org/docs/user-manual[AsciiDoctor User Manual]
+** link:https://docs.asciidoctor.org/asciidoc/latest[AsciiDoctor Full Documentation]
 * link:https://github.com/confluence-publisher/confluence-publisher[Confluence-Publisher] to publish to Confluence (link:https://confluence-publisher.atlassian.net/wiki/spaces/CPD/overview?mode=global[Confluence Publisher])
 
+
+*Web presentations:*
+
+* link:https://docs.asciidoctor.org/reveal.js-converter/latest/[Reveal.js]
 
 // ==== Confluence/GIT Specific (not in PDF)
 ifdef::env-github,confluencePublisherVersion[]
