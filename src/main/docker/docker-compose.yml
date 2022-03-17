@@ -11,7 +11,7 @@ services:
 
   confluence:
     # build: .
-    image: confluencepublisher/confluence-publisher-it:6.0.5
+    image: confluencepublisher/confluence-publisher-it:7.13.4
     ports:
      - "8090:8090"
      - "8091:8091"
