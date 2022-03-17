@@ -36,6 +36,8 @@ Not all are using *AsciiDoc*, however the principle remains the same with text s
 
 * link:https://github.com/mraible/infoq-mini-book[InfoQ mini book]
 
+* link:https://bcouetil.gitlab.io/academy/BP-asciidoc.html[Zenika doc]
+
 == Diagrams
 
 * link:https://kroki.io/[Kroki]
