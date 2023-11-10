@@ -2,7 +2,7 @@ FROM python:3.9-alpine
 
 # FROM https://github.com/mingrammer/diagrams (under /docker/dev hence preventing direct build)
 
-ARG VERSION=0.21.1
+ARG VERSION=0.23.4
 
 # Build-time metadata as defined at http://label-schema.org
 ARG BUILD_DATE
@@ -19,10 +19,10 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.schema-version="1.0"
 
 RUN apk update && apk add --no-cache \
-  gcc libc-dev g++ graphviz git bash go imagemagick inkscape ttf-opensans curl fontconfig
+  gcc libc-dev g++ graphviz git bash go imagemagick inkscape ttf-opensans curl fontconfig xdg-utils
 
 # install go package.
-RUN go get github.com/mingrammer/round
+RUN go install github.com/mingrammer/round@latest
 
 # install fonts
 RUN curl -O https://noto-website.storage.googleapis.com/pkgs/NotoSansCJKjp-hinted.zip \
